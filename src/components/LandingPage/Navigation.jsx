@@ -37,10 +37,10 @@ const Navigation = () => {
             </NavLink>
           </span>
         </Navbar.Collapse>
-        <div className="dark-mode">
+        {/* <div className="dark-mode">
           <i className="bi bi-moon-fill" />
           <i className="bi bi-brightness-high d-none-dark" />
-        </div>
+        </div> */}
       </Container>
     </Navbar>
   );
