@@ -30,7 +30,7 @@ const Contact = () => {
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Masukan nama anda..."
+                  placeholder="Masukkan nama anda..."
                   className="form-control border-input border-opacity-25"
                   id="name"
                   aria-describedby="name"
@@ -48,7 +48,7 @@ const Contact = () => {
                   id="email"
                   aria-describedby="email"
                   name="email"
-                  placeholder="Masukan email anda..."
+                  placeholder="Masukkan email anda..."
                 />
               </Form.Group>
 
@@ -62,7 +62,7 @@ const Contact = () => {
                   className="border-input border-opacity-25"
                   id="message"
                   name="message"
-                  placeholder="Masukan pesan anda..."
+                  placeholder="Masukkan pesan anda..."
                 />
               </Form.Group>
 

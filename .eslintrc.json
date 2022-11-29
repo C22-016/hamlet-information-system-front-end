@@ -32,6 +32,7 @@
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "arrow-body-style": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "comma-dangle": "off"
   }
 }
