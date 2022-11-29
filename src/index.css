@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --background: #fff;
+  --text-primary: #000;
+  --text-primary-1: #fff;
+  --text-primary-2: #6c757d;
+  --text-secondary: #fefefe;
+}
+
+[data-theme='dark'] {
+  --background: #313347;
+  --text-primary: #fff;
+  --text-primary-1: #313347;
+  --text-primary-2: #888888;
+  --text-secondary: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'DM Sans', sans-serif;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: auto;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow: hidden;
+  color: #212529;
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
