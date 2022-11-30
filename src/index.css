@@ -40,3 +40,7 @@ img {
   width: 100%;
   height: auto;
 }
+
+.container-dashboard {
+  margin-top: 130px;
+}
