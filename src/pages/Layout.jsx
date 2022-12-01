@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <NavBar />
-      <main className="vh-100">{children}</main>
+      <main>{children}</main>
       <Footer />
     </React.Fragment>
   );
