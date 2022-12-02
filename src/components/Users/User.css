@@ -1,0 +1,16 @@
+thead.his-thead  {
+    background-color: #00aa95;
+}
+
+thead.his-thead tr th {
+    color: #fff;
+}
+
+.table-responsive tr.hover-his:hover {
+    background-color: #00aa95;
+}
+
+.table-responsive tr.hover-his:hover td {
+    color: #fff;
+    font-weight: bold;
+}

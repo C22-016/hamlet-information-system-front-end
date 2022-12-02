@@ -1,30 +1,25 @@
-/* eslint-disable max-len */
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {
+  Container, Button, Card, Row, Col
+} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Layout from './Layout';
 
-const Archive = () => {
+const ArchivesList = () => {
   return (
-    <Layout>
-      <Container className="container-dashboard">
+    <Container className="container-dashboard">
         <Card border="success" className="w-100" style={{ width: '18rem' }}>
           {/* <Card.Header>Header</Card.Header> */}
           <Card.Body>
             <Row>
               <Col md={2} className="text-center m-auto">
-                <img src="./images/cloud_upload.svg" alt="archive" style={{ width: '50px' }} />
+                <img src="./images/cloud_upload.svg" alt="archives" style={{ width: '50px' }} />
               </Col>
               <Col md={6} className="text-center p-2">
                 <Card.Title>Archive</Card.Title>
                 <Card.Text>Tambahkan dokumen yang ingin kamu bagikan disini.</Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
-                <NavLink to="/archive/add">
+                <NavLink to="/archives/add">
                   <Button variant="dark" className="w-50 inline-block">
                     Tambah
                   </Button>
@@ -58,9 +53,8 @@ const Archive = () => {
             </Row>
           </Card.Body>
         </Card>
-      </Container>
-    </Layout>
+    </Container>
   );
 };
 
-export default Archive;
+export default ArchivesList;

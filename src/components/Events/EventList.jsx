@@ -1,19 +1,12 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown';
+import {
+  Container, Button, Card, Row, Col, Dropdown
+} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Layout from './Layout';
 
-const Event = () => {
+const EventList = () => {
   return (
-    <Layout>
-      <Container className="container-dashboard">
+    <Container className="container-dashboard">
         <Card border="success" className="w-100" style={{ width: '18rem' }}>
           {/* <Card.Header>Header</Card.Header> */}
           <Card.Body>
@@ -26,7 +19,7 @@ const Event = () => {
                 <Card.Text>Tambahkan event yang ingin kamu bagikan disini.</Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
-                <NavLink to="/event/add">
+                <NavLink to="/events/add">
                   <Button variant="dark" className="w-50 inline-block">
                     Tambah
                   </Button>
@@ -49,7 +42,7 @@ const Event = () => {
 
                         <Dropdown.Menu>
                           <Dropdown.Item>
-                            <NavLink to="/event/edit">
+                            <NavLink to="/events/update/1">
                               <Button variant="light" className="w-100">
                                 Edit
                               </Button>
@@ -77,9 +70,8 @@ const Event = () => {
             </Row>
           </Card.Body>
         </Card>
-      </Container>
-    </Layout>
+    </Container>
   );
 };
 
-export default Event;
+export default EventList;

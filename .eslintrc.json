@@ -26,6 +26,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/function-component-definition": "off",
     "react/self-closing-comp": "off",
+    "react/prop-types": "off",
+    "react/jsx-fragments": "off",
     "no-console": "off",
     "no-useless-concat": "off",
     "no-plusplus": "off",
@@ -33,6 +35,7 @@
     "import/prefer-default-export": "off",
     "arrow-body-style": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "max-len": "off"
   }
 }

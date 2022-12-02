@@ -1,6 +1,5 @@
-import Container from 'react-bootstrap/Container';
+import { Container, Navbar } from 'react-bootstrap';
 // import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import SideBar from './SideBar';
 
@@ -14,7 +13,7 @@ function NavBar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            Signed in as: <a href="#login">Udin</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

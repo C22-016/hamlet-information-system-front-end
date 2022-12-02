@@ -4,10 +4,10 @@ import About from '../components/LandingPage/About';
 import Features from '../components/LandingPage/Features';
 import Contact from '../components/LandingPage/Contact';
 import Footer from '../components/LandingPage/Footer';
-import Interactive from '../components/LandingPage/Interactive';
+// import Interactive from '../components/LandingPage/Interactive';
 
 const LandingPages = () => {
-  <Interactive />;
+  // <Interactive />;
   return (
     <>
       <Navigation />

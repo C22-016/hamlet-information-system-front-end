@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Layout from './Layout';

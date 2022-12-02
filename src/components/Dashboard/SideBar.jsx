@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import ListGroup from 'react-bootstrap/ListGroup';
+import { Button, Offcanvas, ListGroup } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -21,7 +19,7 @@ function SideBar() {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="w-50 m-auto">
-            <img src="./images/logo-navbar.png" alt="logo his" />
+            <img src="../images/logo-navbar.png" alt="logo his" />
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
@@ -41,37 +39,37 @@ function SideBar() {
               </NavLink>
             </ListGroup.Item> */}
             <ListGroup.Item>
-              <NavLink to="/broadcast">
+              <NavLink to="/broadcasts">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-bell pe-3"></i> Broadcast
+                  <i className="bi bi-bell pe-3"></i> Broadcasts
                 </Button>
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="/message">
+              <NavLink to="/messages">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-envelope pe-3"></i> Message
+                  <i className="bi bi-envelope pe-3"></i> Messages
                 </Button>
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="/archive">
+              <NavLink to="/archives">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-cloud ps-0 pe-3"></i> Archive
+                  <i className="bi bi-cloud ps-0 pe-3"></i> Archives
                 </Button>
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="/event">
+              <NavLink to="/events">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-calendar-event pe-3"></i> Event
+                  <i className="bi bi-calendar-event pe-3"></i> Events
                 </Button>
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="/user">
+              <NavLink to="/users">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-people pe-3"></i> User
+                  <i className="bi bi-people pe-3"></i> Users
                 </Button>
               </NavLink>
             </ListGroup.Item>
