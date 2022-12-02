@@ -1,7 +1,6 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
-import {
-  MDBContainer, MDBCard, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBInput
-} from 'mdb-react-ui-kit';
+import { MDBContainer, MDBCard, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import './LoginPage.css';
 import { Button } from 'react-bootstrap';
 
@@ -11,7 +10,7 @@ const LoginForm = () => {
       <MDBCard>
         <MDBRow>
           <MDBCol md="6 d-none d-md-block">
-            <MDBCardImage src="./images/image-login.png" alt="login form" className="rounded-start fluid" />
+            <MDBCardImage src="./images/login.gif" alt="login form" className="rounded-start fluid" />
           </MDBCol>
 
           <MDBCol md="6" className="my-auto">
@@ -24,7 +23,7 @@ const LoginForm = () => {
                 Masuk untuk mengakses ruang Anda
               </h5>
 
-              <MDBInput wrapperClass="mb-4" placeholder="Email" type="email" size="md" />
+              <MDBInput wrapperClass="mb-4" placeholder="Username" type="text" size="md" />
               <MDBInput wrapperClass="mb-4" placeholder="Password" type="password" size="md" />
 
               <Button className="mb-4 px-5" type="submit" variant="success" size="lg">

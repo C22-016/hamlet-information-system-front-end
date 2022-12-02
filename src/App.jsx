@@ -13,6 +13,8 @@ import UpdateUser from './pages/UpdateUser';
 import Events from './pages/Events';
 import AddEvent from './pages/AddEvent';
 import UpdateEvent from './pages/UpdateEvent';
+import SettingProfile from './pages/SettingProfile';
+import SettingPrivacy from './pages/SettingPrivacy';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route path="/events" element={<Events />}></Route>
           <Route path="/events/add" element={<AddEvent />}></Route>
           <Route path="/events/update/:id" element={<UpdateEvent />}></Route>
+          <Route path="/settings/profile" element={<SettingProfile />}></Route>
+          <Route path="/settings/privacy" element={<SettingPrivacy />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

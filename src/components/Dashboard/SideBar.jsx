@@ -74,9 +74,9 @@ function SideBar() {
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="/setting">
+              <NavLink to="/settings/profile">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-gear pe-3"></i> Setting
+                  <i className="bi bi-gear pe-3"></i> Settings
                 </Button>
               </NavLink>
             </ListGroup.Item>
