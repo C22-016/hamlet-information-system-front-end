@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -6,14 +7,14 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: ''
+  message: '',
 };
 
 export const LoginUser = createAsyncThunk('user/LoginUser', async (user, thunkAPI) => {
   try {
     const response = await axios.post('http://localhost:5000/login', {
       email: user.email,
-      password: user.password
+      password: user.password,
     });
     return response.data;
   } catch (error) {
@@ -44,7 +45,7 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    reset: (state) => initialState
+    reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder.addCase(LoginUser.pending, (state) => {
@@ -75,7 +76,7 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.payload;
     });
-  }
+  },
 });
 
 export const { reset } = authSlice.actions;

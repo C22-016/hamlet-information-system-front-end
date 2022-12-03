@@ -1,7 +1,6 @@
+/* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
-import {
-  Container, Button, Card, Row, Col, Table
-} from 'react-bootstrap';
+import { Container, Button, Card, Row, Col, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './User.css';
 import axios from 'axios';
@@ -29,17 +28,11 @@ const UserList = () => {
         <Card.Body>
           <Row>
             <Col md={2} className="text-center m-auto">
-              <img
-                src="./images/page-user.svg"
-                alt="user page"
-                style={{ width: '50px' }}
-              />
+              <img src="./images/page-user.svg" alt="user page" style={{ width: '50px' }} />
             </Col>
             <Col md={6} className="text-center p-2">
               <Card.Title>Users</Card.Title>
-              <Card.Text>
-                Tambahkan user yang ingin kamu bagikan disini.
-              </Card.Text>
+              <Card.Text>Tambahkan user yang ingin kamu bagikan disini.</Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
               <Link to="/users/add">
@@ -63,7 +56,7 @@ const UserList = () => {
                   <tr className="hover-his" key={user.uuid}>
                     <td>{index + 1}</td>
                     <td>
-                      {/* <img src={user.image} alt="profile" className="rounded-circle" style={{ width: '3em' }} /> */}
+                      {/* <img src={user.url} alt="profile" className="rounded-circle" style={{ width: '3em' }} /> */}
                       {user.name}
                     </td>
                     <td>{user.email}</td>
@@ -74,11 +67,7 @@ const UserList = () => {
                           <i class="bi bi-pencil"></i>
                         </Button>
                       </Link>
-                      <Button
-                        onClick={() => deleteUser(user.uuid)}
-                        size="md"
-                        variant="danger"
-                      >
+                      <Button onClick={() => deleteUser(user.uuid)} size="md" variant="danger">
                         <i class="bi bi-trash"></i>
                       </Button>
                     </td>

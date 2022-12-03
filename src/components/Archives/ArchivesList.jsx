@@ -1,9 +1,26 @@
 /* eslint-disable object-curly-newline */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Button, Card, Row, Col, Dropdown } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const ArchivesList = () => {
+  const [archives, setArchives] = useState([]);
+
+  const getArchives = async () => {
+    const response = await axios.get('http://localhost:5000/archives');
+    setArchives(response.data);
+  };
+
+  useEffect(() => {
+    getArchives();
+  }, []);
+
+  const deleteArchive = async (archiveId) => {
+    await axios.delete(`http://localhost:5000/archives/${archiveId}`);
+    getArchives();
+  };
+
   return (
     <Container className="container-dashboard">
       <Card border="success" className="w-100" style={{ width: '18rem' }}>
@@ -18,59 +35,55 @@ const ArchivesList = () => {
               <Card.Text>Tambahkan dokumen yang ingin kamu bagikan disini.</Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
-              <NavLink to="/archives/add">
+              <Link to="/archives/add">
                 <Button variant="dark" className="w-50 inline-block">
                   Tambah
                 </Button>
-              </NavLink>
+              </Link>
             </Col>
           </Row>
         </Card.Body>
       </Card>
-      <Card border="dark" className="w-100 mt-5" style={{ width: '18rem' }}>
+      <Card border="dark" className="w-100 mt-5 pb-5">
         <Card.Header>Shared Document</Card.Header>
         <Card.Body>
           <Row>
             {/* Card Archive Start */}
-            <Col lg={4} md={6}>
-              <Row className="p-4 border border-dark rounded m-2">
-                {/* <Col md={3} className="text-center m-auto">
-                    <img src="./images/folder-archive.svg" alt="folder" style={{ width: '50px' }} />
-                  </Col>
-                  <Col>
-                    <p className="fw-semibold">Undangan Kerja Bakti</p>
-                    <Button size="sm" variant="dark" className="me-3">
-                      <i class="bi bi-eye"></i>
-                    </Button>
-                    <Button size="sm" variant="danger">
-                      <i class="bi bi-trash"></i>
-                    </Button>
-                  </Col> */}
-                <div className="d-flex">
-                  <img src="./images/folder-archive.svg" alt="folder" className="m-auto" style={{ width: '60px' }} />
-                  <p className="fw-semibold fs-5 m-auto p-2">Undangan Kerja Bakti</p>
-                  <Dropdown className="m-auto">
-                    <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
+            {archives.map((archive) => (
+              <Col lg={4} md={6} key={archive.uuid}>
+                <Row className="p-4 border border-dark rounded m-2">
+                  <div className="d-flex">
+                    <img src="./images/folder-archive.svg" alt="folder" className="m-auto" style={{ width: '50px' }} />
+                    <p className="fw-semibold m-auto p-2">{archive.name}</p>
+                    <Dropdown className="m-auto">
+                      <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                      <Dropdown.Item>
-                        <NavLink to="#">
+                      <Dropdown.Menu>
+                        <Dropdown.Item href={archive.link}>
                           <Button variant="light" className="w-100">
                             Lihat
                           </Button>
-                        </NavLink>
-                      </Dropdown.Item>
+                        </Dropdown.Item>
 
-                      <Dropdown.Item>
-                        <Button variant="light" className="w-100">
-                          Hapus
-                        </Button>
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-              </Row>
-            </Col>
+                        <Dropdown.Item href={archive.link}>
+                          <Link to={`/archives/update/${archive.uuid}`}>
+                            <Button variant="light" className="w-100">
+                              Edit
+                            </Button>
+                          </Link>
+                        </Dropdown.Item>
+
+                        <Dropdown.Item>
+                          <Button onClick={() => deleteArchive(archive.uuid)} variant="light" className="w-100">
+                            Hapus
+                          </Button>
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
+                </Row>
+              </Col>
+            ))}
             {/* Card Archive End */}
           </Row>
         </Card.Body>
