@@ -19,21 +19,21 @@ const Contact = () => {
                 <Form.Label for="name" className="contact-us">
                   Nama
                 </Form.Label>
-                <Form.Control type="text" placeholder="Masukkan nama anda..." className="form-control border-input border-opacity-25" id="name" aria-describedby="name" name="name" />
+                <Form.Control type="text" placeholder="Masukan nama anda..." className="form-control border-input border-opacity-25" id="name" aria-describedby="name" name="name" />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label for="email" className="contact-us">
                   Email
                 </Form.Label>
-                <Form.Control type="email" className="form-control border-input border-opacity-25" id="email" aria-describedby="email" name="email" placeholder="Masukkan email anda..." />
+                <Form.Control type="email" className="form-control border-input border-opacity-25" id="email" aria-describedby="email" name="email" placeholder="Masukan email anda..." />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label for="message" className="contact-us">
                   Pesan
                 </Form.Label>
-                <Form.Control as="textarea" rows={3} className="border-input border-opacity-25" id="message" name="message" placeholder="Masukkan pesan anda..." />
+                <Form.Control as="textarea" rows={3} className="border-input border-opacity-25" id="message" name="message" placeholder="Masukan pesan anda..." />
               </Form.Group>
 
               <Button type="submit" className="btn btn-form btn-send">

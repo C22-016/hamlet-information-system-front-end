@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import { Button, Offcanvas, ListGroup } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { LogOut, reset } from '../../features/authSlice';
 
-function SideBar() {
+const SideBar = () => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+
+  const logout = () => {
+    dispatch(LogOut());
+    dispatch(reset());
+    navigate('/');
+  };
 
   return (
     <>
@@ -19,7 +28,7 @@ function SideBar() {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="w-50 m-auto">
-            <img src="../images/logo-navbar.png" alt="logo his" />
+            <img src="./images/logo-navbar.png" alt="logo his" />
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
@@ -31,13 +40,6 @@ function SideBar() {
                 </Button>
               </NavLink>
             </ListGroup.Item>
-            {/* <ListGroup.Item>
-              <NavLink to="/beranda">
-                <Button className="w-100 fs-5 p-3" variant="light">
-                  <i className="bi bi-house"></i> Beranda
-                </Button>
-              </NavLink>
-            </ListGroup.Item> */}
             <ListGroup.Item>
               <NavLink to="/broadcasts">
                 <Button className="w-100 p-3 fs-5" variant="light">
@@ -67,11 +69,13 @@ function SideBar() {
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="/users">
-                <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-people pe-3"></i> Users
-                </Button>
-              </NavLink>
+              {user && user.role !== 'user' && (
+                <NavLink to="/users">
+                  <Button className="w-100 p-3 fs-5" variant="light">
+                    <i className="bi bi-people pe-3"></i> Users
+                  </Button>
+                </NavLink>
+              )}
             </ListGroup.Item>
             <ListGroup.Item>
               <NavLink to="/settings/profile">
@@ -81,17 +85,19 @@ function SideBar() {
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <NavLink to="#">
-                <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-box-arrow-left pe-3"></i> Logout
-                </Button>
-              </NavLink>
+              <Button
+                onClick={logout}
+                className="w-100 p-3 fs-5"
+                variant="light"
+              >
+                <i className="bi bi-box-arrow-left pe-3"></i> Logout
+              </Button>
             </ListGroup.Item>
           </ListGroup>
         </Offcanvas.Body>
       </Offcanvas>
     </>
   );
-}
+};
 
 export default SideBar;

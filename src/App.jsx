@@ -15,6 +15,7 @@ import AddEvent from './pages/AddEvent';
 import UpdateEvent from './pages/UpdateEvent';
 import SettingProfile from './pages/SettingProfile';
 import SettingPrivacy from './pages/SettingPrivacy';
+import Forbidden from './pages/Forbidden/Forbidden';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/events/update/:id" element={<UpdateEvent />}></Route>
           <Route path="/settings/profile" element={<SettingProfile />}></Route>
           <Route path="/settings/privacy" element={<SettingPrivacy />}></Route>
+          <Route path="/forbidden" element={<Forbidden />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

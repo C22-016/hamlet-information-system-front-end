@@ -7,7 +7,6 @@ nav.navbar {
   top: 0;
   z-index: 99;
   transition: 0.3s ease-in-out;
-  box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 nav.navbar .navbar-brand img {
@@ -360,11 +359,147 @@ footer p.pb-4.text-center.fw-semibold.m-0 {
     margin: 12px 0;
   }
 }
-@media only screen and (max-width: 600px) {
+
+@media (max-width: 768px) {
+  nav.navbar .navbar-text i,
+  nav.navbar .navbar-nav .nav-link.navbar-link i {
+    display: block;
+  }
+
+  nav.navbar .navbar-toggler {
+    display: none;
+  }
+
+  nav.navbar .navbar-collapse.landing {
+    display: flex;
+    padding: 0 5em;
+    margin-left: -125px;
+    background-color: #fff;
+    z-index: 99;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    border-radius: 40px 40px 0 0;
+    box-shadow: rgb(50, 50, 93 / 25%) 0 50px 100px -25px,
+      rgb(0, 0, 0 /30%) 0 30px 60px -30px;
+  }
+
+  nav.navbar .navbar-collapse.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav.navbar .navbar-collapse.landing .navbar-nav {
+    display: flex !important;
+    flex-direction: row;
+  }
+
+  nav.navbar .navbar-collapse.landing .ms-auto {
+    margin-left: 0 !important;
+  }
+
+  nav.navbar .navbar-collapse.landing .navbar-link {
+    display: flex;
+    align-items: center;
+  }
+
+  nav.navbar .navbar-collapse.landing .navbar-nav i {
+    font-size: 2.5em !important;
+  }
+
+  nav.navbar .navbar-collapse.landing a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    text-decoration: none;
+    padding: 0;
+    font-size: 1.5em;
+    line-height: 1.4;
+    width: 100%;
+    height: 100px;
+  }
+
+  nav.navbar .navbar-collapse.landing .nav-link.navbar-link {
+    width: max-content;
+    font-size: 0.5em;
+  }
+
+  nav.navbar .navbar-text {
+    padding: 0;
+  }
+
+  nav.navbar .navbar-text button span {
+    font-size: 0.5em;
+  }
+
+  nav.navbar .navbar-text button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    padding: 10px 15px !important;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 35px;
+    margin-left: 18px;
+  }
+
+  nav.navbar .navbar-text button i {
+    font-size: 1.5em !important;
+  }
+
+  .jumbotron {
+    padding: 150px 0 100px 0;
+  }
+
+  .jumbo-item h1.tagline {
+    font-size: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  .jumbo-item p {
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  nav.navbar .collapse.landing {
+    margin-left: -12px;
+    bottom: -2%;
+  }
+
+  nav.navbar .navbar-text button span {
+    font-size: 0.6em;
+    width: max-content;
+  }
+
+  nav.navbar .navbar-text button {
+    padding: 10px 15px !important;
+    font-weight: 200;
+    border-radius: 30px;
+  }
+
+  nav.navbar .navbar-text button i {
+    font-size: 1.5em !important;
+  }
+
+  nav.navbar .navbar-text button span {
+    width: max-content;
+  }
+
   .jumbo-item {
     text-align: center;
   }
   .jumbo-item h1 {
     line-height: 2.8rem;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+  }
+  .jumbo-item p {
+    font-size: 16px;
+    width: 100%;
   }
 }
