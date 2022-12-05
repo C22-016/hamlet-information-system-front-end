@@ -40,13 +40,15 @@ const SideBar = () => {
                 </Button>
               </NavLink>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <NavLink to="/broadcasts">
-                <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-bell pe-3"></i> Broadcasts
-                </Button>
-              </NavLink>
-            </ListGroup.Item>
+            {user && user.role !== 'user' && (
+              <ListGroup.Item>
+                <NavLink to="/broadcasts">
+                  <Button className="w-100 p-3 fs-5" variant="light">
+                    <i className="bi bi-bell pe-3"></i> Broadcasts
+                  </Button>
+                </NavLink>
+              </ListGroup.Item>
+            )}
             <ListGroup.Item>
               <NavLink to="/messages">
                 <Button className="w-100 p-3 fs-5" variant="light">
@@ -68,15 +70,15 @@ const SideBar = () => {
                 </Button>
               </NavLink>
             </ListGroup.Item>
-            <ListGroup.Item>
-              {user && user.role !== 'user' && (
+            {user && user.role !== 'user' && (
+              <ListGroup.Item>
                 <NavLink to="/users">
                   <Button className="w-100 p-3 fs-5" variant="light">
                     <i className="bi bi-people pe-3"></i> Users
                   </Button>
                 </NavLink>
-              )}
-            </ListGroup.Item>
+              </ListGroup.Item>
+            )}
             <ListGroup.Item>
               <NavLink to="/settings/profile">
                 <Button className="w-100 p-3 fs-5" variant="light">
@@ -85,11 +87,7 @@ const SideBar = () => {
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <Button
-                onClick={logout}
-                className="w-100 p-3 fs-5"
-                variant="light"
-              >
+              <Button onClick={logout} className="w-100 p-3 fs-5" variant="light">
                 <i className="bi bi-box-arrow-left pe-3"></i> Logout
               </Button>
             </ListGroup.Item>

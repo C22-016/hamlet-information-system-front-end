@@ -4,6 +4,16 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import './LandingPage.css';
 
 const Contact = () => {
+  // const scriptURL = 'https://script.google.com/macros/s/AKfycbw3YbO65F_Hy-Yz6Z8WACHJ0fNPG4TkcVXoSBnVULKJtytiNjlzFEsZ9dNfmMmULGcR/exec';
+  // const form = document.forms['submit-to-google-sheet'];
+
+  // form.addEventListener('submit', (e) => {
+  //   e.preventDefault();
+  //   fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+  //     .then((response) => console.log('Success!', response))
+  //     .catch((error) => console.error('Error!', error.message));
+  // });
+
   return (
     <section id="contact" className="pt-4">
       <Container>
@@ -14,7 +24,7 @@ const Contact = () => {
               Pesan kamu sudah kami terima!
               <Button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></Button>
             </div>
-            <Form>
+            <Form name="submit-to-google-sheet">
               <Form.Group className="mb-3">
                 <Form.Label for="name" className="contact-us">
                   Nama
@@ -60,7 +70,7 @@ const Contact = () => {
               </div>
               <div className="d-flex">
                 <i className="bi bi-envelope"></i>
-                <p className="fw-semibold ps-2 contact-us">hamlet@gmail.com</p>
+                <p className="fw-semibold ps-2 contact-us">hamletinformationsystem@gmail.com</p>
               </div>
             </div>
           </Col>

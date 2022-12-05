@@ -55,17 +55,11 @@ const UserList = () => {
         <Card.Body>
           <Row>
             <Col md={2} className="text-center m-auto">
-              <img
-                src="./images/page-user.svg"
-                alt="user page"
-                style={{ width: '50px' }}
-              />
+              <img src="./images/page-user.svg" alt="user page" style={{ width: '50px' }} />
             </Col>
             <Col md={6} className="text-center p-2">
               <Card.Title>Users</Card.Title>
-              <Card.Text>
-                Tambahkan user yang ingin kamu bagikan disini.
-              </Card.Text>
+              <Card.Text>Tambahkan user yang ingin kamu bagikan disini.</Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
               <Link to="/users/add">
@@ -100,11 +94,7 @@ const UserList = () => {
                           <i class="bi bi-pencil"></i>
                         </Button>
                       </Link>
-                      <Button
-                        onClick={() => deleteUser(user.uuid)}
-                        size="md"
-                        variant="danger"
-                      >
+                      <Button onClick={() => deleteUser(user.uuid)} size="md" variant="danger">
                         <i class="bi bi-trash"></i>
                       </Button>
                       {/* <Modal show={show} onHide={handleClose}>

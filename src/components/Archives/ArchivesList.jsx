@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Card, Row, Col, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const ArchivesList = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const [archives, setArchives] = useState([]);
 
   const getArchives = async () => {
@@ -22,27 +25,29 @@ const ArchivesList = () => {
 
   return (
     <Container className="container-dashboard">
-      <Card border="success" className="w-100" style={{ width: '18rem' }}>
-        {/* <Card.Header>Header</Card.Header> */}
-        <Card.Body>
-          <Row>
-            <Col md={2} className="text-center m-auto">
-              <img src="./images/cloud_upload.svg" alt="archives" style={{ width: '50px' }} />
-            </Col>
-            <Col md={6} className="text-center p-2">
-              <Card.Title>Archive</Card.Title>
-              <Card.Text>Tambahkan dokumen yang ingin kamu bagikan disini.</Card.Text>
-            </Col>
-            <Col md={4} className="m-auto text-center">
-              <Link to="/archives/add">
-                <Button variant="dark" className="w-50 inline-block">
-                  Tambah
-                </Button>
-              </Link>
-            </Col>
-          </Row>
-        </Card.Body>
-      </Card>
+      {user && user.role !== 'user' && (
+        <Card border="success" className="w-100" style={{ width: '18rem' }}>
+          {/* <Card.Header>Header</Card.Header> */}
+          <Card.Body>
+            <Row>
+              <Col md={2} className="text-center m-auto">
+                <img src="./images/cloud_upload.svg" alt="archives" style={{ width: '50px' }} />
+              </Col>
+              <Col md={6} className="text-center p-2">
+                <Card.Title>Archive</Card.Title>
+                <Card.Text>Tambahkan dokumen yang ingin kamu bagikan disini.</Card.Text>
+              </Col>
+              <Col md={4} className="m-auto text-center">
+                <Link to="/archives/add">
+                  <Button variant="dark" className="w-50 inline-block">
+                    Tambah
+                  </Button>
+                </Link>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      )}
       <Card border="dark" className="w-100 mt-5 pb-5">
         <Card.Header>Shared Document</Card.Header>
         <Card.Body>
@@ -64,19 +69,22 @@ const ArchivesList = () => {
                           </Button>
                         </Dropdown.Item>
 
-                        <Dropdown.Item href={archive.link}>
-                          <Link to={`/archives/update/${archive.uuid}`}>
-                            <Button variant="light" className="w-100">
-                              Edit
-                            </Button>
-                          </Link>
-                        </Dropdown.Item>
-
-                        <Dropdown.Item>
-                          <Button onClick={() => deleteArchive(archive.uuid)} variant="light" className="w-100">
-                            Hapus
-                          </Button>
-                        </Dropdown.Item>
+                        {user && user.role !== 'user' && (
+                          <div>
+                            <Dropdown.Item href={archive.link}>
+                              <Link to={`/archives/update/${archive.uuid}`}>
+                                <Button variant="light" className="w-100">
+                                  Edit
+                                </Button>
+                              </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                              <Button onClick={() => deleteArchive(archive.uuid)} variant="light" className="w-100">
+                                Hapus
+                              </Button>
+                            </Dropdown.Item>
+                          </div>
+                        )}
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>

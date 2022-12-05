@@ -1,16 +1,43 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 const BroadcastList = () => {
+  const [broadcasts, setBroadcasts] = useState([]);
+
+  const getBroadcasts = async () => {
+    const response = await axios.get('http://localhost:5000/broadcast');
+    setBroadcasts(response.data);
+  };
+
+  useEffect(() => {
+    getBroadcasts();
+  }, []);
+
+  const deleteBroadcasts = async () => {
+    await axios.delete('http://localhost:5000/broadcast');
+    getBroadcasts();
+  };
+
   return (
-    <Container className="container-dashboard">
-        <h1>Hallo, ini adalah halaman Broadcast</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis cupiditate rerum minima harum, nesciunt, molestiae corrupti magni repudiandae totam, similique adipisci architecto voluptates impedit nostrum iusto libero consequuntur
-          perspiciatis ea inventore accusantium fugiat. Explicabo nam temporibus, ex dicta qui sunt pariatur repellendus reprehenderit nostrum voluptatum sit minus amet, doloribus, dolor repudiandae atque ipsum voluptatibus consequatur voluptas eum
-          ducimus. Ad aliquam nesciunt ea inventore fugiat totam aliquid cum, quos esse sequi illum similique itaque corrupti facilis officia ex nostrum sunt. Distinctio quo nulla sequi consectetur natus neque quam sit placeat tempora inventore
-          magni, doloribus error repellat incidunt ad nobis suscipit commodi!
-        </p>
+    <Container className="shadow p-3 rounded">
+      <p className="fw-semibold fs-4 mb-3">Riwayat Notifikasi</p>
+      <div className="mb-3 text-end">
+        <Button variant="outline-dark" onClick={() => deleteBroadcasts()}>
+          Hapus
+        </Button>
+      </div>
+      {broadcasts.map((broadcast) => (
+        <div key={broadcast.broadcast_id}>
+          <div className="border border-1 p-3 mb-3 rounded-3">
+            <p className="fw-semibold fs-6">{broadcast.title}</p>
+            <p>{broadcast.content}</p>
+            <p>
+              <small>{broadcast.createdAt}</small>
+            </p>
+          </div>
+        </div>
+      ))}
     </Container>
   );
 };
