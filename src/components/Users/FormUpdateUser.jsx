@@ -1,5 +1,3 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Col, Form, Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';

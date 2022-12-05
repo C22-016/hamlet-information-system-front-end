@@ -4,7 +4,7 @@ import { Container, Navbar } from 'react-bootstrap';
 import SideBar from './SideBar';
 
 const NavBar = () => {
-  const { user } = useSelector(((state) => state.auth));
+  const { user } = useSelector((state) => state.auth);
   return (
     <Navbar>
       <Container>
@@ -14,7 +14,9 @@ const NavBar = () => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-          <p>Signed in as: <strong>{user && user.name}</strong></p>
+            <p>
+              Signed in as: <strong>{user && user.name}</strong>
+            </p>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

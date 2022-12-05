@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Card, Row, Col, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

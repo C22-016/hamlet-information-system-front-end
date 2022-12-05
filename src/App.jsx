@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import Broadcasts from './pages/Broadcasts';
 import Messages from './pages/Messages';
+import UpdateMessage from './pages/UpdateMessage';
 import Archives from './pages/Archives';
 import AddArchive from './pages/AddArchive';
 import UpdateArchive from './pages/UpdateArchive';
@@ -27,9 +28,18 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/broadcasts" element={<Broadcasts />}></Route>
           <Route path="/messages" element={<Messages />}></Route>
+          <Route
+            path="/messages/update/:id"
+            element={<UpdateMessage />}
+          >
+          </Route>
           <Route path="/archives" element={<Archives />}></Route>
           <Route path="/archives/add" element={<AddArchive />}></Route>
-          <Route path="/archives/update/:id" element={<UpdateArchive />}></Route>
+          <Route
+            path="/archives/update/:id"
+            element={<UpdateArchive />}
+          >
+          </Route>
           <Route path="/users" element={<Users />}></Route>
           <Route path="/users/add" element={<AddUser />}></Route>
           <Route path="/users/update/:id" element={<UpdateUser />}></Route>

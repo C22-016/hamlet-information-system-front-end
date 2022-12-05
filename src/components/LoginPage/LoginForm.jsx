@@ -9,7 +9,7 @@ import {
   Card,
   Col,
   Form,
-  Button
+  Button,
 } from 'react-bootstrap';
 import { LoginUser, reset } from '../../features/authSlice';
 import './LoginPage.css';
@@ -17,6 +17,7 @@ import './LoginPage.css';
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [show, setShow] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -43,7 +44,7 @@ const LoginForm = () => {
   };
   return (
     <Container>
-      <Card className="py-3 my-3 shadow">
+      <Card className="py-4 my-4 shadow">
         <Row>
           <Col md={6} className="d-none d-md-block">
             <Image
@@ -65,7 +66,13 @@ const LoginForm = () => {
               </h5>
               <Form onSubmit={Auth}>
                 {isError && (
-                  <Alert variant="danger" className="text-center">
+                  <Alert
+                    show={show}
+                    variant="danger"
+                    className="text-center"
+                    onClose={() => setShow(false)}
+                    dismissible
+                  >
                     <Alert.Heading>{message}</Alert.Heading>
                   </Alert>
                 )}
@@ -92,6 +99,7 @@ const LoginForm = () => {
                   type="submit"
                   variant="success"
                   size="md"
+                  onClick={() => setShow(true)}
                 >
                   {isLoading ? 'Loading...' : 'Masuk'}
                 </Button>

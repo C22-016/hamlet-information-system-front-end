@@ -28,7 +28,7 @@ const SideBar = () => {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="w-50 m-auto">
-            <img src="./images/logo-navbar.png" alt="logo his" />
+            <img src="../images/logo-navbar.png" alt="logo his" />
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>

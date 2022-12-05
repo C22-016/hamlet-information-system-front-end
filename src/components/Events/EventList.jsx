@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import React from 'react';
 import { Container, Button, Card, Row, Col, Dropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';

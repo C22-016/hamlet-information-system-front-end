@@ -1,12 +1,24 @@
-/* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Card, Row, Col, Table } from 'react-bootstrap';
+import {
+  Container,
+  Button,
+  Card,
+  Row,
+  Col,
+  Table,
+  // Modal
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './User.css';
 import axios from 'axios';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+
+  // const handleClickDelete = () => setShow(true);
 
   const getUsers = async () => {
     const response = await axios.get('http://localhost:5000/users');
@@ -19,20 +31,41 @@ const UserList = () => {
 
   const deleteUser = async (userId) => {
     await axios.delete(`http://localhost:5000/users/${userId}`);
+    // handleClose();
     getUsers();
   };
 
+  // const handleDeleteItem = () => {
+  //   deleteUser();
+  //   setUsers((pre) => {
+  //     const koko = [...pre];
+  //     return koko.filter((user) => user.uuid !== deleteId);
+  //   });
+  //   setShow(false);
+  // };
+
   return (
     <Container className="container-dashboard">
+      {/* <Alert variant="success" show={show} onClose={() => setShow(false)} dismissible>
+        <p><strong>Berhasil Menghapus pengguna</strong>
+
+        </p>
+      </Alert> */}
       <Card border="success" className="w-100" style={{ width: '18rem' }}>
         <Card.Body>
           <Row>
             <Col md={2} className="text-center m-auto">
-              <img src="./images/page-user.svg" alt="user page" style={{ width: '50px' }} />
+              <img
+                src="./images/page-user.svg"
+                alt="user page"
+                style={{ width: '50px' }}
+              />
             </Col>
             <Col md={6} className="text-center p-2">
               <Card.Title>Users</Card.Title>
-              <Card.Text>Tambahkan user yang ingin kamu bagikan disini.</Card.Text>
+              <Card.Text>
+                Tambahkan user yang ingin kamu bagikan disini.
+              </Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
               <Link to="/users/add">
@@ -67,9 +100,35 @@ const UserList = () => {
                           <i class="bi bi-pencil"></i>
                         </Button>
                       </Link>
-                      <Button onClick={() => deleteUser(user.uuid)} size="md" variant="danger">
+                      <Button
+                        onClick={() => deleteUser(user.uuid)}
+                        size="md"
+                        variant="danger"
+                      >
                         <i class="bi bi-trash"></i>
                       </Button>
+                      {/* <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                          <Modal.Title>Hapus Pengguna</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          <p>
+                            Apakah anda yakin untuk menghapus
+                            <strong>{user.name} ?</strong>
+                          </p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button variant="secondary" onClick={handleClose}>
+                            Batal
+                          </Button>
+                          <Button
+                            variant="danger"
+                            // onClick={() => deleteUser(user.uuid)}
+                          >
+                            Hapus
+                          </Button>
+                        </Modal.Footer>
+                      </Modal> */}
                     </td>
                   </tr>
                 ))}

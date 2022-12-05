@@ -1,8 +1,9 @@
 import React from 'react';
+import './Dashboard.css';
 
 const Footer = () => {
   return (
-    <footer className="text-center py-5 sticky-bottom">
+    <footer className="footer-his text-center pt-5">
       <p>&#169; 2022 | Hamlet Information System</p>
     </footer>
   );

@@ -15,7 +15,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "linebreak-style": "off",
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "react/button-has-type": "off",
@@ -29,6 +28,7 @@
     "react/prop-types": "off",
     "react/jsx-fragments": "off",
     "no-console": "off",
+    "linebreak-style": "off",
     "consistent-return": "off",
     "no-useless-concat": "off",
     "no-plusplus": "off",
@@ -38,6 +38,8 @@
     "arrow-body-style": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "comma-dangle": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "object-curly-newline": "off",
+    "object-shorthand": "off"
   }
 }
