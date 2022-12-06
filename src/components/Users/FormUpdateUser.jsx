@@ -75,9 +75,9 @@ const FormUpdateUser = () => {
               <Form.Group className="mb-4">
                 <Form.Label>Pilih Role</Form.Label>
                 <Form.Select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option>Admin</option>
-                  <option>Staff</option>
-                  <option>User</option>
+                  <option>admin</option>
+                  <option>staf</option>
+                  <option>user</option>
                 </Form.Select>
               </Form.Group>
               <Button type="submit" className="me-2" variant="success" size="md">

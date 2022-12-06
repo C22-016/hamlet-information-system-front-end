@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 
 const BroadcastList = () => {
   const [broadcasts, setBroadcasts] = useState([]);
+  const [showDangerAlert, setShowDangerAlert] = useState(false);
 
   const getBroadcasts = async () => {
     const response = await axios.get('http://localhost:5000/broadcast');
@@ -16,11 +17,20 @@ const BroadcastList = () => {
 
   const deleteBroadcasts = async () => {
     await axios.delete('http://localhost:5000/broadcast');
+    setShowDangerAlert(true);
     getBroadcasts();
   };
 
   return (
     <Container className="shadow p-3 rounded">
+      <Alert
+        variant="danger"
+        show={showDangerAlert}
+        onClose={() => setShowDangerAlert(false)}
+        dismissible
+      >
+        <p>Pesan Broadcast berhasil dihapus</p>
+      </Alert>
       <p className="fw-semibold fs-4 mb-3">Riwayat Notifikasi</p>
       <div className="mb-3 text-end">
         <Button variant="outline-dark" onClick={() => deleteBroadcasts()}>

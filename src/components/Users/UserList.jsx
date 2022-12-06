@@ -6,6 +6,7 @@ import {
   Row,
   Col,
   Table,
+  Alert,
   // Modal
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -15,9 +16,9 @@ import axios from 'axios';
 const UserList = () => {
   const [users, setUsers] = useState([]);
   // const [show, setShow] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   // const handleClose = () => setShow(false);
-
   // const handleClickDelete = () => setShow(true);
 
   const getUsers = async () => {
@@ -30,27 +31,26 @@ const UserList = () => {
   }, []);
 
   const deleteUser = async (userId) => {
-    await axios.delete(`http://localhost:5000/users/${userId}`);
     // handleClose();
+    await axios.delete(`http://localhost:5000/users/${userId}`);
+    setShowAlert(true);
     getUsers();
   };
 
   // const handleDeleteItem = () => {
   //   deleteUser();
   //   setUsers((pre) => {
-  //     const koko = [...pre];
-  //     return koko.filter((user) => user.uuid !== deleteId);
+  //     const data = [...pre];
+  //     return data.filter((user) => user.uuid !== deleteId);
   //   });
   //   setShow(false);
   // };
 
   return (
     <Container className="container-dashboard">
-      {/* <Alert variant="success" show={show} onClose={() => setShow(false)} dismissible>
-        <p><strong>Berhasil Menghapus pengguna</strong>
-
-        </p>
-      </Alert> */}
+      <Alert variant="danger" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
+      <Alert.Heading>Berhasil Menghapus Pengguna</Alert.Heading>
+      </Alert>
       <Card border="success" className="w-100" style={{ width: '18rem' }}>
         <Card.Body>
           <Row>
@@ -113,7 +113,7 @@ const UserList = () => {
                           </Button>
                           <Button
                             variant="danger"
-                            // onClick={() => deleteUser(user.uuid)}
+                            onClick={() => deleteUser(user.uuid)}
                           >
                             Hapus
                           </Button>

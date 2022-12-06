@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Card, Row, Col, Dropdown } from 'react-bootstrap';
+import { Container, Button, Card, Row, Col, Dropdown, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -8,6 +8,7 @@ const ArchivesList = () => {
   const { user } = useSelector((state) => state.auth);
 
   const [archives, setArchives] = useState([]);
+  const [showDangerAlert, setShowDangerAlert] = useState(false);
 
   const getArchives = async () => {
     const response = await axios.get('http://localhost:5000/archives');
@@ -20,12 +21,22 @@ const ArchivesList = () => {
 
   const deleteArchive = async (archiveId) => {
     await axios.delete(`http://localhost:5000/archives/${archiveId}`);
+    setShowDangerAlert(true);
     getArchives();
   };
 
   return (
     <Container className="container-dashboard">
+      <Alert
+        variant="danger"
+        show={showDangerAlert}
+        onClose={() => setShowDangerAlert(false)}
+        dismissible
+      >
+        <Alert.Heading>Archive berhasil dihapus</Alert.Heading>
+      </Alert>
       {user && user.role !== 'user' && (
+
         <Card border="success" className="w-100" style={{ width: '18rem' }}>
           {/* <Card.Header>Header</Card.Header> */}
           <Card.Body>
@@ -69,7 +80,7 @@ const ArchivesList = () => {
                           </Button>
                         </Dropdown.Item>
 
-                        {user && user.role !== 'user' && (
+                        {user && user.role !== 'User' && (
                           <div>
                             <Dropdown.Item href={archive.link}>
                               <Link to={`/archives/update/${archive.uuid}`}>

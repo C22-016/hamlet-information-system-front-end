@@ -22,6 +22,7 @@ const AddNewUser = () => {
         password: password,
         confPassword: confPassword,
         role: role,
+        image: image,
       });
       navigate('/users');
     } catch (error) {
@@ -59,9 +60,9 @@ const AddNewUser = () => {
               <Form.Group className="mb-4">
                 <Form.Label>Pilih Role</Form.Label>
                 <Form.Select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option>Admin</option>
-                  <option>Staff</option>
-                  <option>User</option>
+                  <option>admin</option>
+                  <option>staf</option>
+                  <option>user</option>
                 </Form.Select>
               </Form.Group>
               <Form.Group controlId="formFile" className="mb-3">
