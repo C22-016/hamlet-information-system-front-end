@@ -1,7 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Profile = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [gender, setGender] = useState('');
+  const [rt, setRt] = useState('');
+  const [telp, setTelp] = useState('');
+  const [msg, setMsg] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/me');
+        setName(response.data.name);
+        setEmail(response.data.email);
+        setAddress(response.data.address);
+        setGender(response.data.gender);
+        setRt(response.data.rt);
+        setTelp(response.data.telp);
+      } catch (error) {
+        if (error.response) {
+          setMsg(error.response.data.msg);
+        }
+      }
+    };
+    getUserById();
+  });
+
+  const updateUser = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.patch('http://localhost:5000/me', {
+        name: name,
+        email: email,
+        address: address,
+        gender: gender,
+        rt: rt,
+        telp: telp,
+      });
+      navigate('/users');
+    } catch (error) {
+      if (error.response) {
+        setMsg(error.response.data.msg);
+      }
+    }
+  };
   return (
     <Container>
       <Row>
@@ -15,39 +63,37 @@ const Profile = () => {
           </Form.Group>
         </Col>
         <Col md={6} className="p-5">
-          <Form>
+          <Form onSubmit={updateUser}>
+            <p className="text-center">{msg}</p>
             <Form.Group className="mb-3">
               <Form.Label>Nama Lengkap</Form.Label>
-              <Form.Control type="text" placeholder="Masukan nama lengkap" />
+              <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Masukan nama lengkap" />
             </Form.Group>
             <Row>
-              <Form.Label>Alamat</Form.Label>
               <Col md={6}>
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                  <Form.Control type="text" placeholder="Masukan alamat" />
+                <Form.Label>Alamat</Form.Label>
+                <Form.Group className="mb-3">
+                  <Form.Control type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Masukan alamat" />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-3" controlId="formGroupPassword">
-                  {/* <Form.Label>Pilih dusun</Form.Label> */}
-                  <Form.Select>
-                    <option>RT 01</option>
-                    <option>RT 02</option>
-                  </Form.Select>
+                <Form.Group className="mb-3">
+                  <Form.Label>RT</Form.Label>
+                  <Form.Control type="text" value={rt} onChange={(e) => setRt(e.target.value)} placeholder="Masukan RT" />
                 </Form.Group>
               </Col>
             </Row>
             <Form.Group className="mb-3">
               <Form.Label>No. Handphone</Form.Label>
-              <Form.Control type="text" placeholder="Masukan nomor handphone" />
+              <Form.Control type="text" value={telp} onChange={(e) => setTelp(e.target.value)} placeholder="Masukan nomor handphone" />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Masukan email" />
+              <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Masukan email" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formGroupPassword">
+            <Form.Group className="mb-3">
               <Form.Label>Jenis Kelamin</Form.Label>
-              <Form.Select>
+              <Form.Select value={gender} onChange={(e) => setGender(e.target.value)}>
                 <option>Laki-laki</option>
                 <option>Perempuan</option>
               </Form.Select>

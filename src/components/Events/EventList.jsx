@@ -1,10 +1,33 @@
-import React from 'react';
-import { Container, Button, Card, Row, Col, Dropdown } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Button, Card, Row, Col, Dropdown, Modal } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const EventList = () => {
   const { user } = useSelector((state) => state.auth);
+
+  const [events, setEvents] = useState([]);
+  const [show, setShow] = useState(false);
+  // const [showDangerAlert, setShowDangerAlert] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const getEvents = async () => {
+    const response = await axios.get('http://localhost:5000/events');
+    setEvents(response.data);
+  };
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
+  const deleteEvent = async (eventId) => {
+    await axios.delete(`http://localhost:5000/events/${eventId}`);
+    // setShowDangerAlert(true);
+    getEvents();
+  };
 
   return (
     <Container className="container-dashboard">
@@ -21,11 +44,11 @@ const EventList = () => {
                 <Card.Text>Tambahkan event yang ingin kamu bagikan disini.</Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
-                <NavLink to="/events/add">
+                <Link to="/events/add">
                   <Button variant="dark" className="w-50 inline-block">
                     Tambah
                   </Button>
-                </NavLink>
+                </Link>
               </Col>
             </Row>
           </Card.Body>
@@ -35,43 +58,66 @@ const EventList = () => {
         <Card.Header>Event List</Card.Header>
         <Card.Body>
           <Row lg={3} md={2} sm={1} xs={1} className="g-4">
-            <Col>
-              <Card>
-                <Card.Body>
-                  <Card.Title className="d-flex justify-content-between">
-                    <span className="my-auto">Arisan RW</span>
-                    {user && user.role !== 'user' && (
-                      <Dropdown>
-                        <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
+            {events.map((event) => (
+              <Col key={event.uuid}>
+                <Card>
+                  <Card.Body>
+                    <Card.Title className="d-flex justify-content-between">
+                      <span className="my-auto">{event.name}</span>
+                      {user && user.role !== 'user' && (
+                        <Dropdown>
+                          <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                          <Dropdown.Item>
-                            <NavLink to="/events/update/1">
-                              <Button variant="light" className="w-100">
-                                Edit
+                          <Dropdown.Menu>
+                            <Dropdown.Item>
+                              <Link to={`/events/update/${event.uuid}`}>
+                                <Button variant="light" className="w-100">
+                                  Edit
+                                </Button>
+                              </Link>
+                            </Dropdown.Item>
+
+                            <Dropdown.Item>
+                              <Button onClick={() => deleteEvent(event.uuid)} variant="light" className="w-100">
+                                Hapus
                               </Button>
-                            </NavLink>
-                          </Dropdown.Item>
-
-                          <Dropdown.Item>
-                            <Button variant="light" className="w-100">
-                              Hapus
-                            </Button>
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    )}
-                  </Card.Title>
-                  <Card.Img variant="top" className="py-3" src="./images/hero-image.jpg" />
-                  <Card.Text>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</Card.Text>
-                </Card.Body>
-                <Card.Footer className="text-end">
-                  <small>
-                    Read more <i class="bi bi-chevron-right"></i>
-                  </small>
-                </Card.Footer>
-              </Card>
-            </Col>
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      )}
+                    </Card.Title>
+                    <Card.Img variant="top" className="py-3" src="./images/hero-image.jpg" />
+                    <Card.Text>{event.desc}</Card.Text>
+                  </Card.Body>
+                  <Card.Footer className="text-end">
+                    <Button onClick={handleShow} variant="light">
+                      <small>
+                        Read more <i class="bi bi-chevron-right"></i>
+                      </small>
+                    </Button>
+                  </Card.Footer>
+                  <Modal show={show} onHide={handleClose} size="lg" centered>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Event</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <p className="text-end fst-italic">
+                        <small>Dibuat pada {event.createdAt}</small>
+                      </p>
+                      <p className="fw-semibold fs-4 text-center">{event.name}</p>
+                      <img className="rounded-4" src="./images/hero-image.jpg" alt="modal" />
+                      <p className="pt-4">{event.desc}</p>
+                      <p>Tanggal Event: {event.date}</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                </Card>
+              </Col>
+            ))}
           </Row>
         </Card.Body>
       </Card>
