@@ -1,13 +1,12 @@
 import React from 'react';
-import NavBar from '../components/Dashboard/NavBar';
-import Footer from '../components/Dashboard/Footer';
+import { NavBar, FooterDashboard } from '../components';
 
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <NavBar />
       <main>{children}</main>
-      <Footer />
+      <FooterDashboard />
     </React.Fragment>
   );
 };

@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import axios from 'axios';
+import API_ENDPOINT from '../../globals/ApiEndpoint';
 
 const Notification = () => {
   const [showA, setShowA] = useState(true);
@@ -14,7 +15,7 @@ const Notification = () => {
   const [broadcasts, setBroadcasts] = useState([]);
 
   const getBroadcasts = async () => {
-    const response = await axios.get('http://localhost:5000/broadcast');
+    const response = await axios.get(API_ENDPOINT.BROADCASTS);
     setBroadcasts(response.data);
   };
 

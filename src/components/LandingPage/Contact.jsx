@@ -12,6 +12,13 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [showSuccessAlert, setshowSuccessAlert] = useState(false);
 
+  const handleShowAlert = () => {
+    setshowSuccessAlert(true);
+    setTimeout(() => {
+      setshowSuccessAlert(false);
+    }, 2000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -23,12 +30,11 @@ const Contact = () => {
     };
 
     axios.post('https://sheet.best/api/sheets/e3a90e34-acf0-42ef-828e-17edb6920c27', data).then((response) => {
-      // console.log(response);
       setName('');
       setEmail('');
       setMessage('');
       setLoading(false);
-      setshowSuccessAlert(true);
+      handleShowAlert();
     });
   };
 

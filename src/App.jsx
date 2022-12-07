@@ -1,29 +1,31 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPages from './pages/LandingPage';
-import LoginPage from './pages/LoginPage';
-import Dashboard from './pages/Dashboard';
-import Broadcasts from './pages/Broadcasts';
-import Messages from './pages/Messages';
-import UpdateMessage from './pages/UpdateMessage';
-import Archives from './pages/Archives';
-import AddArchive from './pages/AddArchive';
-import UpdateArchive from './pages/UpdateArchive';
-import Users from './pages/Users';
-import AddUser from './pages/AddUser';
-import UpdateUser from './pages/UpdateUser';
-import Events from './pages/Events';
-import AddEvent from './pages/AddEvent';
-import UpdateEvent from './pages/UpdateEvent';
-import SettingProfile from './pages/SettingProfile';
-import SettingPrivacy from './pages/SettingPrivacy';
-import Forbidden from './pages/Forbidden/Forbidden';
+import {
+  LandingPage,
+  LoginPage,
+  Dashboard,
+  Broadcasts,
+  Messages,
+  UpdateMessage,
+  Archives,
+  AddArchive,
+  UpdateArchive,
+  Users,
+  AddUser,
+  UpdateUser,
+  Events,
+  AddEvent,
+  UpdateEvent,
+  SettingProfile,
+  SettingPrivacy,
+  Forbidden,
+} from './pages';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPages />}></Route>
+          <Route path="/" element={<LandingPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/broadcasts" element={<Broadcasts />}></Route>
