@@ -15,7 +15,7 @@ const DetailEvent = () => {
 
   useEffect(() => {
     getDetailEvent();
-  }, []);
+  }, [id]);
 
   return (
     <Container className="container-dashboard">
@@ -31,17 +31,13 @@ const DetailEvent = () => {
             <Card.Body className="text-center">
               <Row>
                 <Col md={12} className="p-3">
-                  <Image
-                    src={detailEvent.url}
-                    className="rounded-circle"
-                    alt="Foto Profil"
-                    style={{ width: '150px' }}
-                    fluid
-                  />
+                  <Image src={detailEvent.url} className="rounded-circle" alt="Foto Profil" style={{ width: '150px' }} fluid />
                   <p className="mt-4 mb-3 display-5">
                     <strong>{detailEvent.name}</strong>
                   </p>
-                  <p className="mt-4 mb-3">Tanggal Event: <em>{detailEvent.date}</em></p>
+                  <p className="mt-4 mb-3">
+                    Tanggal Event: <em>{detailEvent.date}</em>
+                  </p>
                 </Col>
               </Row>
             </Card.Body>

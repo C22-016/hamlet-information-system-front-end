@@ -64,12 +64,7 @@ const UserList = () => {
 
   return (
     <Container className="container-dashboard">
-      <Alert
-        variant="danger"
-        show={showAlert}
-        onClose={() => setShowAlert(false)}
-        dismissible
-      >
+      <Alert variant="danger" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>Berhasil Menghapus Pengguna</Alert.Heading>
       </Alert>
       <Card border="success" className="w-100" style={{ width: '18rem' }}>
@@ -82,9 +77,7 @@ const UserList = () => {
             </Col>
             <Col md={6} className="text-center p-2">
               <Card.Title>Users</Card.Title>
-              <Card.Text>
-                Tambahkan user yang ingin kamu bagikan disini.
-              </Card.Text>
+              <Card.Text>Tambahkan user yang ingin kamu bagikan disini.</Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
               <Link to="/users/add">
@@ -95,7 +88,7 @@ const UserList = () => {
             </Col>
             <Table responsive bordered rounded hover className="my-3">
               <thead className="his-thead">
-                <tr>
+                <tr className="text-center">
                   <th>No</th>
                   <th>Name</th>
                   <th>Email</th>
@@ -107,15 +100,10 @@ const UserList = () => {
               </thead>
               <tbody>
                 {users.map((user, index) => (
-                  <tr className="hover-his" key={user.uuid}>
+                  <tr className="hover-his text-center" key={user.uuid}>
                     <td>{index + 1}</td>
-                    <td>
-                      <img
-                        src={user.url}
-                        alt="profile"
-                        className="rounded-circle me-2"
-                        style={{ width: '3rem' }}
-                      />
+                    <td className="text-start">
+                      <img src={user.url} alt="profile" className="rounded-circle me-2" style={{ width: '3rem' }} />
                       {user.name}
                     </td>
                     <td>{user.email}</td>
@@ -125,35 +113,16 @@ const UserList = () => {
                     <td>
                       <Link to={`/users/update/${user.uuid}`}>
                         <Button size="md" variant="dark" className="me-2">
-                          <i
-                            class="bi bi-pencil"
-                            aria-label="Edit User"
-                            aria-required="true"
-                          >
-                          </i>
+                          <i class="bi bi-pencil" aria-label="Edit User" aria-required="true"></i>
                         </Button>
                       </Link>
                       <Link to={`/users/${user.uuid}`}>
                         <Button size="md" variant="secondary" className="me-2">
-                          <i
-                            class="bi bi-eye"
-                            aria-label="Detail User"
-                            aria-required="true"
-                          >
-                          </i>
+                          <i class="bi bi-eye" aria-label="Detail User" aria-required="true"></i>
                         </Button>
                       </Link>
-                      <Button
-                        onClick={() => deleteUser(user.uuid)}
-                        size="md"
-                        variant="danger"
-                      >
-                        <i
-                          class="bi bi-trash"
-                          aria-label="Delete User"
-                          aria-required="true"
-                        >
-                        </i>
+                      <Button onClick={() => deleteUser(user.uuid)} size="md" variant="danger">
+                        <i class="bi bi-trash" aria-label="Delete User" aria-required="true"></i>
                       </Button>
                       {/* <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>

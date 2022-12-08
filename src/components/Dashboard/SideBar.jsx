@@ -71,7 +71,7 @@ const SideBar = () => {
                 </Button>
               </NavLink>
             </ListGroup.Item>
-            {user && user.role !== 'user' && (
+            {user && user.role === 'admin' && (
               <ListGroup.Item>
                 <NavLink to="/users">
                   <Button className="w-100 p-3 fs-5" variant="light">

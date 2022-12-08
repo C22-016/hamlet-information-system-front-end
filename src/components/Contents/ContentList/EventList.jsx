@@ -47,12 +47,7 @@ const EventList = () => {
 
   return (
     <Container className="container-dashboard">
-      <Alert
-        variant="danger"
-        show={showDangerAlert}
-        onClose={() => setShowDangerAlert(false)}
-        dismissible
-      >
+      <Alert variant="danger" show={showDangerAlert} onClose={() => setShowDangerAlert(false)} dismissible>
         <Alert.Heading>Event berhasil dihapus</Alert.Heading>
       </Alert>
       {user && user.role !== 'user' && (
@@ -62,18 +57,12 @@ const EventList = () => {
             <Row>
               <Col md={2} className="text-center m-auto">
                 <h1>
-                  <i
-                    style={{ width: '35em' }}
-                    className="bi bi-calendar-event"
-                  >
-                  </i>
+                  <i style={{ width: '35em' }} className="bi bi-calendar-event"></i>
                 </h1>
               </Col>
               <Col md={6} className="text-center p-2">
                 <Card.Title>Events</Card.Title>
-                <Card.Text>
-                  Tambahkan event yang ingin kamu bagikan disini.
-                </Card.Text>
+                <Card.Text>Tambahkan event yang ingin kamu bagikan disini.</Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
                 <Link to="/events/add">
@@ -86,11 +75,7 @@ const EventList = () => {
           </Card.Body>
         </Card>
       )}
-      <Card
-        border="dark"
-        className="w-100 mt-5 py-3"
-        style={{ width: '18rem' }}
-      >
+      <Card border="dark" className="w-100 mt-5 py-3" style={{ width: '18rem' }}>
         <Card.Header>Event List</Card.Header>
         <Card.Body>
           <Row lg={3} md={2} sm={1} xs={1} className="g-4">
@@ -102,11 +87,7 @@ const EventList = () => {
                       <span className="my-auto">{event.name}</span>
                       {user && user.role !== 'user' && (
                         <Dropdown>
-                          <Dropdown.Toggle
-                            variant="light"
-                            className="border border-2"
-                          >
-                          </Dropdown.Toggle>
+                          <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
 
                           <Dropdown.Menu>
                             <Dropdown.Item>
@@ -126,11 +107,7 @@ const EventList = () => {
                             </Dropdown.Item>
 
                             <Dropdown.Item>
-                              <Button
-                                onClick={() => deleteEvent(event.uuid)}
-                                variant="light"
-                                className="w-100"
-                              >
+                              <Button onClick={() => deleteEvent(event.uuid)} variant="light" className="w-100">
                                 Hapus
                               </Button>
                             </Dropdown.Item>
@@ -138,12 +115,7 @@ const EventList = () => {
                         </Dropdown>
                       )}
                     </Card.Title>
-                    <Card.Img
-                      variant="top"
-                      className="py-3 rounded"
-                      src={event.url}
-                      style={{ maxHeight: '18em' }}
-                    />
+                    <Card.Img variant="top" className="py-3 rounded" src={event.url} style={{ maxHeight: '15em' }} />
                     <Card.Text>{event.desc}</Card.Text>
                   </Card.Body>
                   <Card.Footer className="text-end">
