@@ -24,8 +24,8 @@ const FormUpdateUser = () => {
     const response = await axios.get(API_ENDPOINT.GET_USER_BY_ID(id));
     setName(response.data.name);
     setEmail(response.data.email);
-    setPassword(response.data.password);
-    setConfPassword(response.data.confPassword);
+    // setPassword(response.data.password);
+    // setConfPassword(response.data.confPassword);
     setRole(response.data.role);
     setGender(response.data.gender);
     setAddress(response.data.address);
@@ -78,53 +78,28 @@ const FormUpdateUser = () => {
         <Card className="shadow">
           <Card.Body>
             <Card.Title>Users</Card.Title>
-            <Card.Subtitle className="mb-4 text-muted">
-              Update User
-            </Card.Subtitle>
+            <Card.Subtitle className="mb-4 text-muted">Update User</Card.Subtitle>
             <Form onSubmit={updateUser}>
               <p className="text-center">{msg}</p>
               <Form.Group className="mb-3">
                 <Form.Label>Nama</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Masukan Nama"
-                />
+                <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Masukan Nama" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Masukan Email"
-                />
+                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Masukan Email" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Masukan Password"
-                />
+                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Masukan Password" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Konfirmasi Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  value={confPassword}
-                  onChange={(e) => setConfPassword(e.target.value)}
-                  placeholder="Konfirmasi Password"
-                />
+                <Form.Control type="password" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} placeholder="Konfirmasi Password" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Pilih Role</Form.Label>
-                <Form.Select
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                >
+                <Form.Select value={role} onChange={(e) => setRole(e.target.value)}>
                   <option value="admin">Admin</option>
                   <option value="staf">Staff</option>
                   <option value="user">User</option>
@@ -132,29 +107,18 @@ const FormUpdateUser = () => {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Pilih Gender</Form.Label>
-                <Form.Select
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                >
+                <Form.Select value={gender} onChange={(e) => setGender(e.target.value)}>
                   <option value="laki-laki">Laki-laki</option>
                   <option value="perempuan">Perempuan</option>
                 </Form.Select>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Address</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  placeholder="Masukan Alamat"
-                />
+                <Form.Control type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Masukan Alamat" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Pilih RT</Form.Label>
-                <Form.Select
-                  value={rt}
-                  onChange={(e) => setRt(e.target.value)}
-                >
+                <Form.Select value={rt} onChange={(e) => setRt(e.target.value)}>
                   <option value="1">RT 1</option>
                   <option value="2">RT 2</option>
                   <option value="3">RT 3</option>
@@ -164,12 +128,7 @@ const FormUpdateUser = () => {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>No Telp</Form.Label>
-                <Form.Control
-                  type="tel"
-                  value={telp}
-                  onChange={(e) => setTelp(e.target.value)}
-                  placeholder="Masukan No Telp"
-                />
+                <Form.Control type="tel" value={telp} onChange={(e) => setTelp(e.target.value)} placeholder="Masukan No Telp" />
               </Form.Group>
               <Form.Group className="mb-3 image">
                 <Form.Label>Foto profil</Form.Label>
@@ -184,12 +143,7 @@ const FormUpdateUser = () => {
                 ''
               )}
 
-              <Button
-                type="submit"
-                className="me-2"
-                variant="success"
-                size="md"
-              >
+              <Button type="submit" className="me-2" variant="success" size="md">
                 Update
               </Button>
               {/* <Button type="submit" variant="secondary" size="md">
