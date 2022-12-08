@@ -10,6 +10,8 @@ const AddNewUser = () => {
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
   const [role, setRole] = useState('');
+  const [address, setAddress] = useState('');
+  const [rt, setRt] = useState('');
   const [image, setImage] = useState('');
   const [preview, setPreview] = useState('');
   const [msg, setMsg] = useState('');
@@ -29,6 +31,8 @@ const AddNewUser = () => {
     formData.append('password', password);
     formData.append('confPassword', confPassword);
     formData.append('role', role);
+    formData.append('address', address);
+    formData.append('rt', rt);
     formData.append('image', image);
     try {
       await axios.post(API_ENDPOINT.USERS, formData, {
@@ -91,7 +95,29 @@ const AddNewUser = () => {
                   placeholder="Konfirmasi Password"
                 />
               </Form.Group>
-              <Form.Group className="mb-4">
+              <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Masukan Alamat"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Pilih RT</Form.Label>
+                <Form.Select
+                  value={rt}
+                  onChange={(e) => setRt(e.target.value)}
+                >
+                  <option value="1">RT 1</option>
+                  <option value="2">RT 2</option>
+                  <option value="3">RT 3</option>
+                  <option value="4">RT 4</option>
+                  <option value="5">RT 5</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label>Pilih Role</Form.Label>
                 <Form.Select
                   value={role}

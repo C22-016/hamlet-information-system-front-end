@@ -57,7 +57,7 @@ nav.navbar button.his-btn.btn.btn-success.btn-lg:hover {
       rgba(0, 0, 0, 0.3),
       rgba(255, 255, 255, 0)
     ),
-    url("../../../public/images/hero-image.jpg");
+    url("../../materials/Images/hero-image.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -192,6 +192,7 @@ a.his-btn.btn.btn-success.btn-lg {
   font-size: 1.2rem;
   background-color: #00aa95;
   font-weight: 600;
+  text-decoration: none;
   color: #fff;
   border: none;
   transition: all 0.3s;

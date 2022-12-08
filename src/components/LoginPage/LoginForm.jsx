@@ -13,6 +13,7 @@ import {
 } from 'react-bootstrap';
 import { LoginUser, reset } from '../../features/authSlice';
 import './LoginPage.css';
+import { LogoLogin } from '../../materials';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -48,7 +49,7 @@ const LoginForm = () => {
         <Row>
           <Col md={6} className="d-none d-md-block">
             <Image
-              src="./images/login.gif"
+              src={LogoLogin}
               alt="login form"
               className="rounded-start fluid"
             />

@@ -3,6 +3,7 @@ import { Button, Offcanvas, ListGroup } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from '../../features/authSlice';
+import { LogoSidebar } from '../../materials';
 
 const SideBar = () => {
   const [show, setShow] = useState(false);
@@ -28,7 +29,7 @@ const SideBar = () => {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="w-50 m-auto">
-            <img src="../images/logo-navbar.png" alt="logo his" />
+            <img src={LogoSidebar} alt="logo his" />
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>

@@ -3,7 +3,7 @@ import { Container, Button, Alert
   // Modal
 } from 'react-bootstrap';
 import axios from 'axios';
-import API_ENDPOINT from '../../globals/ApiEndpoint';
+import API_ENDPOINT from '../../../globals/ApiEndpoint';
 
 const BroadcastList = () => {
   const [broadcasts, setBroadcasts] = useState([]);
@@ -66,7 +66,7 @@ const BroadcastList = () => {
       >
         <p>Pesan Broadcast berhasil dihapus</p>
       </Alert>
-      <p className="fw-semibold fs-4 mb-3">Riwayat Notifikasi</p>
+      <p className="fw-semibold fs-4 mb-3">Riwayat Notifikasi <i className="bi bi-bell"></i></p>
       <div className="mb-3 text-end">
         <Button variant="outline-danger" onClick={() => deleteBroadcastAll()}>
           Hapus Semua Broadcasts

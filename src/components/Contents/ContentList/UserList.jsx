@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import './User.css';
 import axios from 'axios';
-import API_ENDPOINT from '../../globals/ApiEndpoint';
+import API_ENDPOINT from '../../../globals/ApiEndpoint';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -64,18 +64,27 @@ const UserList = () => {
 
   return (
     <Container className="container-dashboard">
-      <Alert variant="danger" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
-      <Alert.Heading>Berhasil Menghapus Pengguna</Alert.Heading>
+      <Alert
+        variant="danger"
+        show={showAlert}
+        onClose={() => setShowAlert(false)}
+        dismissible
+      >
+        <Alert.Heading>Berhasil Menghapus Pengguna</Alert.Heading>
       </Alert>
       <Card border="success" className="w-100" style={{ width: '18rem' }}>
         <Card.Body>
           <Row>
             <Col md={2} className="text-center m-auto">
-              <img src="./images/page-user.svg" alt="user page" style={{ width: '50px' }} />
+              <h1>
+                <i style={{ width: '35em' }} className="bi bi-people"></i>
+              </h1>
             </Col>
             <Col md={6} className="text-center p-2">
               <Card.Title>Users</Card.Title>
-              <Card.Text>Tambahkan user yang ingin kamu bagikan disini.</Card.Text>
+              <Card.Text>
+                Tambahkan user yang ingin kamu bagikan disini.
+              </Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
               <Link to="/users/add">
@@ -90,6 +99,8 @@ const UserList = () => {
                   <th>No</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Address</th>
+                  <th>RT</th>
                   <th>Role</th>
                   <th>Actions</th>
                 </tr>
@@ -99,19 +110,50 @@ const UserList = () => {
                   <tr className="hover-his" key={user.uuid}>
                     <td>{index + 1}</td>
                     <td>
-                      <img src={user.url} alt="profile" className="rounded-circle me-2" style={{ width: '3em' }} />
+                      <img
+                        src={user.url}
+                        alt="profile"
+                        className="rounded-circle me-2"
+                        style={{ width: '3rem' }}
+                      />
                       {user.name}
                     </td>
                     <td>{user.email}</td>
+                    <td>{user.address}</td>
+                    <td>{user.rt}</td>
                     <td>{user.role}</td>
                     <td>
                       <Link to={`/users/update/${user.uuid}`}>
                         <Button size="md" variant="dark" className="me-2">
-                          <i class="bi bi-pencil"></i>
+                          <i
+                            class="bi bi-pencil"
+                            aria-label="Edit User"
+                            aria-required="true"
+                          >
+                          </i>
                         </Button>
                       </Link>
-                      <Button onClick={() => deleteUser(user.uuid)} size="md" variant="danger">
-                        <i class="bi bi-trash"></i>
+                      <Link to={`/users/${user.uuid}`}>
+                        <Button size="md" variant="secondary" className="me-2">
+                          <i
+                            class="bi bi-eye"
+                            aria-label="Detail User"
+                            aria-required="true"
+                          >
+                          </i>
+                        </Button>
+                      </Link>
+                      <Button
+                        onClick={() => deleteUser(user.uuid)}
+                        size="md"
+                        variant="danger"
+                      >
+                        <i
+                          class="bi bi-trash"
+                          aria-label="Delete User"
+                          aria-required="true"
+                        >
+                        </i>
                       </Button>
                       {/* <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>

@@ -36,7 +36,7 @@ const Profile = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch('http://localhost:5000/me', {
+      await axios.patch(API_ENDPOINT.UPDATE_USER_BY_ID, {
         name: name,
         email: email,
         address: address,

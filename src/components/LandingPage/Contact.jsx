@@ -77,7 +77,7 @@ const Contact = () => {
 
           <Col lg={4} md={6} className="d-block">
             <div className="contact-image">
-              <img src="./images/kontak-kami.svg" className="d-block w-100 img-fluid vector-about d-none d-md-block" alt="Gambar Kontak Kami" />
+              <img src="./kontak-kami.svg" className="d-block w-100 img-fluid vector-about d-none d-md-block" alt="Gambar Kontak Kami" />
               <div className="d-flex">
                 <i className="bi bi-geo-alt"></i>
                 <p className="fw-semibold ps-2 contact-us">Jakarta, Indonesia</p>

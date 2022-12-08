@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Card, Row, Col, Dropdown, Alert } from 'react-bootstrap';
+import {
+  Container,
+  Button,
+  Card,
+  Row,
+  Col,
+  Dropdown,
+  Alert,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import API_ENDPOINT from '../../globals/ApiEndpoint';
+import API_ENDPOINT from '../../../globals/ApiEndpoint';
 
 const ArchivesList = () => {
   const { user } = useSelector((state) => state.auth);
@@ -44,17 +52,24 @@ const ArchivesList = () => {
         <Alert.Heading>Archive berhasil dihapus</Alert.Heading>
       </Alert>
       {user && user.role !== 'user' && (
-
         <Card border="success" className="w-100" style={{ width: '18rem' }}>
           {/* <Card.Header>Header</Card.Header> */}
           <Card.Body>
             <Row>
               <Col md={2} className="text-center m-auto">
-                <img src="./images/cloud_upload.svg" alt="archives" style={{ width: '50px' }} />
+                <h1>
+                  <i
+                    style={{ width: '35em' }}
+                    className="bi bi-cloud-arrow-up"
+                  >
+                  </i>
+                </h1>
               </Col>
               <Col md={6} className="text-center p-2">
                 <Card.Title>Archive</Card.Title>
-                <Card.Text>Tambahkan dokumen yang ingin kamu bagikan disini.</Card.Text>
+                <Card.Text>
+                  Tambahkan dokumen yang ingin kamu bagikan disini.
+                </Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
                 <Link to="/archives/add">
@@ -76,10 +91,14 @@ const ArchivesList = () => {
               <Col lg={4} md={6} key={archive.uuid}>
                 <Row className="p-4 border border-dark rounded m-2">
                   <div className="d-flex">
-                    <img src="./images/folder-archive.svg" alt="folder" className="m-auto" style={{ width: '50px' }} />
+                    <h1><i class="bi bi-folder-symlink" style={{ width: '35em' }}></i></h1>
                     <p className="fw-semibold m-auto p-2">{archive.name}</p>
                     <Dropdown className="m-auto">
-                      <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
+                      <Dropdown.Toggle
+                        variant="light"
+                        className="border border-2"
+                      >
+                      </Dropdown.Toggle>
 
                       <Dropdown.Menu>
                         <Dropdown.Item href={archive.link}>
@@ -98,7 +117,11 @@ const ArchivesList = () => {
                               </Link>
                             </Dropdown.Item>
                             <Dropdown.Item>
-                              <Button onClick={() => deleteArchive(archive.uuid)} variant="light" className="w-100">
+                              <Button
+                                onClick={() => deleteArchive(archive.uuid)}
+                                variant="light"
+                                className="w-100"
+                              >
                                 Hapus
                               </Button>
                             </Dropdown.Item>

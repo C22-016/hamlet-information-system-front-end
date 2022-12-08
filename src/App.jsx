@@ -12,9 +12,11 @@ import {
   Users,
   AddUser,
   UpdateUser,
+  ViewUser,
   Events,
   AddEvent,
   UpdateEvent,
+  ViewEvent,
   SettingProfile,
   SettingPrivacy,
   Forbidden,
@@ -43,9 +45,11 @@ function App() {
           >
           </Route>
           <Route path="/users" element={<Users />}></Route>
+          <Route path="/users/:id" element={<ViewUser />}></Route>
           <Route path="/users/add" element={<AddUser />}></Route>
           <Route path="/users/update/:id" element={<UpdateUser />}></Route>
           <Route path="/events" element={<Events />}></Route>
+          <Route path="/events/:id" element={<ViewEvent />}></Route>
           <Route path="/events/add" element={<AddEvent />}></Route>
           <Route path="/events/update/:id" element={<UpdateEvent />}></Route>
           <Route path="/settings/profile" element={<SettingProfile />}></Route>

@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Card, Row, Col, Dropdown, Modal, Alert } from 'react-bootstrap';
+import {
+  Container,
+  Button,
+  Card,
+  Row,
+  Col,
+  Dropdown,
+  // Modal,
+  Alert,
+} from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import API_ENDPOINT from '../../globals/ApiEndpoint';
+import API_ENDPOINT from '../../../globals/ApiEndpoint';
 
 const EventList = () => {
   const { user } = useSelector((state) => state.auth);
 
   const [events, setEvents] = useState([]);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
   const [showDangerAlert, setShowDangerAlert] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
   const handleShowAlert = () => {
     setShowDangerAlert(true);
     setTimeout(() => {
@@ -52,11 +61,19 @@ const EventList = () => {
           <Card.Body>
             <Row>
               <Col md={2} className="text-center m-auto">
-                <img src="./images/page-user.svg" alt="user page" style={{ width: '50px' }} />
+                <h1>
+                  <i
+                    style={{ width: '35em' }}
+                    className="bi bi-calendar-event"
+                  >
+                  </i>
+                </h1>
               </Col>
               <Col md={6} className="text-center p-2">
                 <Card.Title>Events</Card.Title>
-                <Card.Text>Tambahkan event yang ingin kamu bagikan disini.</Card.Text>
+                <Card.Text>
+                  Tambahkan event yang ingin kamu bagikan disini.
+                </Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
                 <Link to="/events/add">
@@ -69,7 +86,11 @@ const EventList = () => {
           </Card.Body>
         </Card>
       )}
-      <Card border="dark" className="w-100 mt-5" style={{ width: '18rem' }}>
+      <Card
+        border="dark"
+        className="w-100 mt-5 py-3"
+        style={{ width: '18rem' }}
+      >
         <Card.Header>Event List</Card.Header>
         <Card.Body>
           <Row lg={3} md={2} sm={1} xs={1} className="g-4">
@@ -81,7 +102,11 @@ const EventList = () => {
                       <span className="my-auto">{event.name}</span>
                       {user && user.role !== 'user' && (
                         <Dropdown>
-                          <Dropdown.Toggle variant="light" className="border border-2"></Dropdown.Toggle>
+                          <Dropdown.Toggle
+                            variant="light"
+                            className="border border-2"
+                          >
+                          </Dropdown.Toggle>
 
                           <Dropdown.Menu>
                             <Dropdown.Item>
@@ -93,7 +118,19 @@ const EventList = () => {
                             </Dropdown.Item>
 
                             <Dropdown.Item>
-                              <Button onClick={() => deleteEvent(event.uuid)} variant="light" className="w-100">
+                              <Link to={`/events/${event.uuid}`}>
+                                <Button variant="light" className="w-100">
+                                  Lihat
+                                </Button>
+                              </Link>
+                            </Dropdown.Item>
+
+                            <Dropdown.Item>
+                              <Button
+                                onClick={() => deleteEvent(event.uuid)}
+                                variant="light"
+                                className="w-100"
+                              >
                                 Hapus
                               </Button>
                             </Dropdown.Item>
@@ -101,17 +138,24 @@ const EventList = () => {
                         </Dropdown>
                       )}
                     </Card.Title>
-                    <Card.Img variant="top" className="py-3" src="./images/hero-image.jpg" />
+                    <Card.Img
+                      variant="top"
+                      className="py-3 rounded"
+                      src={event.url}
+                      style={{ maxHeight: '18em' }}
+                    />
                     <Card.Text>{event.desc}</Card.Text>
                   </Card.Body>
                   <Card.Footer className="text-end">
-                    <Button onClick={handleShow} variant="light">
-                      <small>
-                        Read more <i class="bi bi-chevron-right"></i>
-                      </small>
-                    </Button>
+                    <Link to={`/events/${event.uuid}`}>
+                      <Button variant="light">
+                        <small>
+                          Lihat Selengkapnya <i class="bi bi-chevron-right"></i>
+                        </small>
+                      </Button>
+                    </Link>
                   </Card.Footer>
-                  <Modal show={show} onHide={handleClose} size="lg" centered>
+                  {/* <Modal show={show} onHide={handleClose} size="lg" centered>
                     <Modal.Header closeButton>
                       <Modal.Title>Event</Modal.Title>
                     </Modal.Header>
@@ -119,8 +163,10 @@ const EventList = () => {
                       <p className="text-end fst-italic">
                         <small>Dibuat pada {event.createdAt}</small>
                       </p>
-                      <p className="fw-semibold fs-4 text-center">{event.name}</p>
-                      <img className="rounded-4" src="./images/hero-image.jpg" alt="modal" />
+                      <p className="fw-semibold fs-4 text-center">
+                        {event.name}
+                      </p>
+                      <img className="rounded-4" src={event.url} alt="modal" />
                       <p className="pt-4">{event.desc}</p>
                       <p>Tanggal Event: {event.date}</p>
                     </Modal.Body>
@@ -129,7 +175,7 @@ const EventList = () => {
                         Close
                       </Button>
                     </Modal.Footer>
-                  </Modal>
+                  </Modal> */}
                 </Card>
               </Col>
             ))}

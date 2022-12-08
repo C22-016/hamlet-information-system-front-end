@@ -1,10 +1,11 @@
-export { default as Privacy } from './ContentList/Settings/Privacy';
-export { default as Profile } from './ContentList/Settings/Profile';
-export { default as ArchivesList } from './ContentList/ArchivesList';
-export { default as BroadcastList } from './ContentList/BroadcastList';
-export { default as EventList } from './ContentList/EventList';
-export { default as MessageList } from './ContentList/MessageList';
-export { default as UserList } from './ContentList/UserList';
+export { default as Privacy } from './Contents/Settings/Privacy';
+export { default as Profile } from './Contents/Settings/Profile';
+export { default as ArchivesList } from './Contents/ContentList/ArchivesList';
+export { default as BroadcastList } from './Contents/ContentList/BroadcastList';
+export { default as EventList } from './Contents/ContentList/EventList';
+export { default as MessageList } from './Contents/ContentList/MessageList';
+export { default as UserList } from './Contents/ContentList/UserList';
+export { default as DetailUser } from './Contents/ContentDetail/DetailUser';
 
 export { default as FooterDashboard } from './Dashboard/Footer';
 export { default as NavBar } from './Dashboard/NavBar';

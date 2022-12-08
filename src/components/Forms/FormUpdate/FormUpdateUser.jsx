@@ -10,6 +10,10 @@ const FormUpdateUser = () => {
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
   const [role, setRole] = useState('');
+  const [gender, setGender] = useState('');
+  const [address, setAddress] = useState('');
+  const [rt, setRt] = useState('');
+  const [telp, setTelp] = useState('');
   const [image, setImage] = useState('');
   const [preview, setPreview] = useState('');
   const [msg, setMsg] = useState('');
@@ -23,6 +27,10 @@ const FormUpdateUser = () => {
     setPassword(response.data.password);
     setConfPassword(response.data.confPassword);
     setRole(response.data.role);
+    setGender(response.data.gender);
+    setAddress(response.data.address);
+    setRt(response.data.rt);
+    setTelp(response.data.telp);
     setImage(response.data.image);
     setPreview(response.data.url);
   };
@@ -45,6 +53,10 @@ const FormUpdateUser = () => {
     formData.append('password', password);
     formData.append('confPassword', confPassword);
     formData.append('role', role);
+    formData.append('gender', gender);
+    formData.append('address', address);
+    formData.append('rt', rt);
+    formData.append('telp', telp);
     formData.append('image', image);
     try {
       await axios.patch(API_ENDPOINT.UPDATE_USER_BY_ID(id), formData, {
@@ -107,16 +119,57 @@ const FormUpdateUser = () => {
                   placeholder="Konfirmasi Password"
                 />
               </Form.Group>
-              <Form.Group className="mb-4">
+              <Form.Group className="mb-3">
                 <Form.Label>Pilih Role</Form.Label>
                 <Form.Select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
                 >
                   <option value="admin">Admin</option>
-                  <option value="staff">Staff</option>
+                  <option value="staf">Staff</option>
                   <option value="user">User</option>
                 </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Pilih Gender</Form.Label>
+                <Form.Select
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option value="laki-laki">Laki-laki</option>
+                  <option value="perempuan">Perempuan</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Masukan Alamat"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Pilih RT</Form.Label>
+                <Form.Select
+                  value={rt}
+                  onChange={(e) => setRt(e.target.value)}
+                >
+                  <option value="1">RT 1</option>
+                  <option value="2">RT 2</option>
+                  <option value="3">RT 3</option>
+                  <option value="4">RT 4</option>
+                  <option value="5">RT 5</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>No Telp</Form.Label>
+                <Form.Control
+                  type="tel"
+                  value={telp}
+                  onChange={(e) => setTelp(e.target.value)}
+                  placeholder="Masukan No Telp"
+                />
               </Form.Group>
               <Form.Group className="mb-3 image">
                 <Form.Label>Foto profil</Form.Label>
