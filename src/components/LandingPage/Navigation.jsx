@@ -1,18 +1,20 @@
+import React from 'react';
 import {
   Container, Nav, Navbar, Button,
 } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './LandingPage.css';
+import { LogoNavbar } from '../../materials';
 
 const Navigation = () => {
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg" className="shadow-sm">
       <Container>
         <Navbar.Brand href="#home">
-          <img src="./images/logo-navbar.png" alt="Logo HIS" />
+          <img src={LogoNavbar} alt="Logo HIS" style={{ width: '5em' }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse className="landing" id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link className="navbar-link" href="#home">
               Beranda <i className="bi bi-house" />

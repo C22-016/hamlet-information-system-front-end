@@ -10,9 +10,9 @@
     "axios": "^1.2.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.2",
-    "mdb-react-ui-kit": "^5.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
@@ -51,7 +51,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.8.0"
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

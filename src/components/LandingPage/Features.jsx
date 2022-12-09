@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './LandingPage.css';
+import { FiturEvent, FiturLaporan, FiturPengumuman, FiturPesan } from '../../materials';
 
 const Features = () => {
   return (
@@ -12,7 +13,7 @@ const Features = () => {
               <div className="card-header">Pengumuman</div>
               <div className="card-body">
                 <img
-                  src="./images/fitur-pengumuman.svg"
+                  src={FiturPengumuman}
                   className="card-img-top"
                   alt="Fitur Pengumuman"
                 />
@@ -24,7 +25,7 @@ const Features = () => {
               <div className="card-header">Pesan</div>
               <div className="card-body">
                 <img
-                  src="./images/fitur-pesan.svg"
+                  src={FiturPesan}
                   className="card-img-top"
                   alt="Fitur Pesan"
                 />
@@ -36,7 +37,7 @@ const Features = () => {
               <div className="card-header">Laporan</div>
               <div className="card-body">
                 <img
-                  src="./images/fitur-laporan.svg"
+                  src={FiturLaporan}
                   className="card-img-top"
                   alt="Fitur Laporan"
                 />
@@ -48,7 +49,7 @@ const Features = () => {
               <div className="card-header">Event</div>
               <div className="card-body">
                 <img
-                  src="./images/fitur-event.svg"
+                  src={FiturEvent}
                   className="card-img-top"
                   alt="Fitur Event"
                 />

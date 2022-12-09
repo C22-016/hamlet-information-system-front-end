@@ -25,6 +25,7 @@ html {
   font-family: 'DM Sans', sans-serif;
   overflow: -moz-scrollbars-vertical;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,10 +34,13 @@ body {
   line-height: 1.5;
   overflow: hidden;
   color: #212529;
-  scroll-behavior: smooth;
 }
 
 img {
   width: 100%;
   height: auto;
+}
+
+.container-dashboard {
+  margin-top: 130px;
 }
