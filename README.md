@@ -1,7 +1,7 @@
 # Hamlet System Information Front-End
 
 <p align="center">
-  <img src="./public/images/HIS-logo.jpg" width="200">
+  <img src='https://i.postimg.cc/mgJy06Tz/HIS-logo.jpg' width="200">
 </p>
 
 
