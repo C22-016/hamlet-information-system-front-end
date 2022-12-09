@@ -8,13 +8,13 @@ import {
   Table,
   Button,
 } from 'react-bootstrap';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import API_ENDPOINT from '../../../globals/ApiEndpoint';
 
 const MessageList = () => {
-  // const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
 
   const [messages, setMessages] = useState([]);
 
