@@ -8,8 +8,6 @@
  Hamlet Information System (HIS) adalah sebuah aplikasi berbasis
  web yang ditujukan untuk masyarakat lingkungan RT/RW. HIS merupakan sebuah solusi bagi lingkungan RT/RW yang memberikan fleksibilitas terhadap masyarakat sekitar dengan memberikan solusi berupa Online Base, terhadap aduan, kendala lingkungan, kejadian-kejadian Darurat, dan sebagainya.
  
-## Project Status
-This project is currently in development. 
  
 ## Installation and Setup Instructions
 To run this project is quite easy. Download or Clone this repository. You will need `node` and `npm` installed globally on your machine. Then run the command `npm install`.
