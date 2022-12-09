@@ -45,7 +45,7 @@ const SideBar = () => {
               <ListGroup.Item>
                 <NavLink to="/broadcasts">
                   <Button className="w-100 p-3 fs-5" variant="light">
-                    <i className="bi bi-bell pe-3"></i> Broadcasts
+                    <i class="bi bi-megaphone"></i> Broadcasts
                   </Button>
                 </NavLink>
               </ListGroup.Item>
@@ -53,7 +53,7 @@ const SideBar = () => {
             <ListGroup.Item>
               <NavLink to="/messages">
                 <Button className="w-100 p-3 fs-5" variant="light">
-                  <i className="bi bi-envelope pe-3"></i> Messages
+                  <i className="bi bi-chat-left-dots"> </i> Messages
                 </Button>
               </NavLink>
             </ListGroup.Item>
@@ -88,7 +88,11 @@ const SideBar = () => {
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
-              <Button onClick={logout} className="w-100 p-3 fs-5" variant="light">
+              <Button
+                onClick={logout}
+                className="w-100 p-3 fs-5"
+                variant="light"
+              >
                 <i className="bi bi-box-arrow-left pe-3"></i> Logout
               </Button>
             </ListGroup.Item>

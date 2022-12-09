@@ -14,7 +14,7 @@ const FormUpdateArchive = () => {
   useEffect(() => {
     const getArchiveById = async () => {
       try {
-        const response = await axios.get(API_ENDPOINT.GET_ARCHIVE_BY_ID);
+        const response = await axios.get(API_ENDPOINT.GET_ARCHIVE_BY_ID(id));
         setName(response.data.name);
         setLink(response.data.link);
       } catch (error) {
@@ -29,7 +29,7 @@ const FormUpdateArchive = () => {
   const updateArchive = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(API_ENDPOINT.UPDATE_ARCHIVE_BY_ID, {
+      await axios.patch(API_ENDPOINT.UPDATE_ARCHIVE_BY_ID(id), {
         name: name,
         link: link,
       });

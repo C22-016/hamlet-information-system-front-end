@@ -72,7 +72,7 @@ const ArchivesList = () => {
                 </Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
-                <Link to="/archives/add">
+                <Link to="/archive/add">
                   <Button variant="dark" className="w-50 inline-block">
                     Tambah
                   </Button>
@@ -110,7 +110,7 @@ const ArchivesList = () => {
                         {user && user.role !== 'User' && (
                           <div>
                             <Dropdown.Item href={archive.link}>
-                              <Link to={`/archives/update/${archive.uuid}`}>
+                              <Link to={`/archive/update/${archive.uuid}`}>
                                 <Button variant="light" className="w-100">
                                   Edit
                                 </Button>

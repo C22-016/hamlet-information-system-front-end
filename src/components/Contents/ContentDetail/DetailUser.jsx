@@ -26,19 +26,6 @@ const DetailUser = () => {
   }, []);
 
   return (
-  // <div className="py-5">
-  //   <div className="py-5">
-  //   <p>{detailUser.email}</p>
-  //   <p>{detailUser.name}</p>
-  //   <p>{detailUser.gender}</p>
-  //   <p>{detailUser.address}</p>
-  //   <p>{detailUser.rt}</p>
-  //   <p>{detailUser.telp}</p>
-  //   <p>{detailUser.role}</p>
-  //   <img src={detailUser.url} style={{width: '40px'}} />
-  //   </div>
-  // </div>
-
     <Container className="container-dashboard">
       <Link to="/users">
         <Button size="md" variant="success" className="my-3">
@@ -47,7 +34,7 @@ const DetailUser = () => {
         </Button>
       </Link>
       <Row>
-        <Col md={8} className="">
+        <Col md={8} className="p-2">
           <Card className="shadow mb-4">
             <Card.Body>
               <Row>
@@ -117,7 +104,7 @@ const DetailUser = () => {
           </Card>
         </Col>
 
-        <Col md={4} className="">
+        <Col md={4} className="p-2">
           <Card className="shadow mb-4">
             <Card.Body className="text-center">
               <Row>

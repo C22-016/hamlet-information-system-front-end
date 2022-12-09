@@ -65,7 +65,7 @@ const EventList = () => {
                 <Card.Text>Tambahkan event yang ingin kamu bagikan disini.</Card.Text>
               </Col>
               <Col md={4} className="m-auto text-center">
-                <Link to="/events/add">
+                <Link to="/event/add">
                   <Button variant="dark" className="w-50 inline-block">
                     Tambah
                   </Button>
@@ -75,7 +75,7 @@ const EventList = () => {
           </Card.Body>
         </Card>
       )}
-      <Card border="dark" className="w-100 mt-5 py-3" style={{ width: '18rem' }}>
+      <Card border="dark" className="w-100 mt-5 pb-3" style={{ width: '18rem' }}>
         <Card.Header>Event List</Card.Header>
         <Card.Body>
           <Row lg={3} md={2} sm={1} xs={1} className="g-4">
@@ -91,7 +91,7 @@ const EventList = () => {
 
                           <Dropdown.Menu>
                             <Dropdown.Item>
-                              <Link to={`/events/update/${event.uuid}`}>
+                              <Link to={`/event/update/${event.uuid}`}>
                                 <Button variant="light" className="w-100">
                                   Edit
                                 </Button>
@@ -99,7 +99,7 @@ const EventList = () => {
                             </Dropdown.Item>
 
                             <Dropdown.Item>
-                              <Link to={`/events/${event.uuid}`}>
+                              <Link to={`/event/${event.uuid}`}>
                                 <Button variant="light" className="w-100">
                                   Lihat
                                 </Button>
@@ -119,7 +119,7 @@ const EventList = () => {
                     <Card.Text>{event.desc}</Card.Text>
                   </Card.Body>
                   <Card.Footer className="text-end">
-                    <Link to={`/events/${event.uuid}`}>
+                    <Link to={`/event/${event.uuid}`}>
                       <Button variant="light">
                         <small>
                           Lihat Selengkapnya <i class="bi bi-chevron-right"></i>

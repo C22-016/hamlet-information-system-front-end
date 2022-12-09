@@ -18,6 +18,7 @@ export { default as LandingPage } from './LandingPage/LandingPage';
 export { default as LoginPage } from './Login/LoginPage';
 
 export { default as Messages } from './Messages/Messages';
+export { default as AddMessage } from './Messages/AddMessage';
 export { default as UpdateMessage } from './Messages/UpdateMessage';
 
 export { default as SettingPrivacy } from './Settings/SettingPrivacy';

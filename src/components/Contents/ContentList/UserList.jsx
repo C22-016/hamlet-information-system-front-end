@@ -80,7 +80,7 @@ const UserList = () => {
               <Card.Text>Tambahkan user yang ingin kamu bagikan disini.</Card.Text>
             </Col>
             <Col md={4} className="m-auto text-center">
-              <Link to="/users/add">
+              <Link to="/user/add">
                 <Button variant="dark" className="w-50 inline-block">
                   Tambah
                 </Button>
@@ -111,12 +111,12 @@ const UserList = () => {
                     <td>{user.rt}</td>
                     <td>{user.role}</td>
                     <td>
-                      <Link to={`/users/update/${user.uuid}`}>
+                      <Link to={`/user/update/${user.uuid}`}>
                         <Button size="md" variant="dark" className="me-2">
                           <i class="bi bi-pencil" aria-label="Edit User" aria-required="true"></i>
                         </Button>
                       </Link>
-                      <Link to={`/users/${user.uuid}`}>
+                      <Link to={`/user/${user.uuid}`}>
                         <Button size="md" variant="secondary" className="me-2">
                           <i class="bi bi-eye" aria-label="Detail User" aria-required="true"></i>
                         </Button>

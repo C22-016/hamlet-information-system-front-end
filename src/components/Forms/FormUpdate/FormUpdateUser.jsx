@@ -80,7 +80,7 @@ const FormUpdateUser = () => {
             <Card.Title>Users</Card.Title>
             <Card.Subtitle className="mb-4 text-muted">Update User</Card.Subtitle>
             <Form onSubmit={updateUser}>
-              <p className="text-center">{msg}</p>
+              <p className="text-center"><strong>{msg}</strong></p>
               <Form.Group className="mb-3">
                 <Form.Label>Nama</Form.Label>
                 <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Masukan Nama" />
