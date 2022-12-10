@@ -5,7 +5,6 @@ import axios from 'axios';
 import { store } from './app/store';
 import App from './App';
 import './index.css';
-import './styles/dark-mode.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 axios.defaults.withCredentials = true;

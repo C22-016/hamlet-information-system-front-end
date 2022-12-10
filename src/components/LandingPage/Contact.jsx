@@ -19,6 +19,8 @@ const Contact = () => {
     }, 2000);
   };
 
+  const API_SHEET = 'https://sheet.best/api/sheets/e3a90e34-acf0-42ef-828e-17edb6920c27';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -29,18 +31,13 @@ const Contact = () => {
       Message: message,
     };
 
-    axios
-      .post(
-        'https://sheet.best/api/sheets/e3a90e34-acf0-42ef-828e-17edb6920c27',
-        data
-      )
-      .then((response) => {
-        setName('');
-        setEmail('');
-        setMessage('');
-        setLoading(false);
-        handleShowAlert();
-      });
+    axios.post(API_SHEET, data).then((response) => {
+      setName('');
+      setEmail('');
+      setMessage('');
+      setLoading(false);
+      handleShowAlert();
+    });
   };
 
   return (
