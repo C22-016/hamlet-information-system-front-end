@@ -1,6 +1,12 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './LandingPage.css';
-import { FiturEvent, FiturLaporan, FiturPengumuman, FiturPesan } from '../../materials';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {
+  FiturEvent,
+  FiturLaporan,
+  FiturPengumuman,
+  FiturPesan,
+} from '../../materials';
 
 const Features = () => {
   return (
@@ -12,9 +18,9 @@ const Features = () => {
             <div className="card text-center shadow-lg">
               <div className="card-header">Pengumuman</div>
               <div className="card-body">
-                <img
+                <LazyLoadImage
                   src={FiturPengumuman}
-                  className="card-img-top"
+                  className="card-img-top "
                   alt="Fitur Pengumuman"
                 />
               </div>
@@ -24,9 +30,9 @@ const Features = () => {
             <div className="card text-center shadow-lg">
               <div className="card-header">Pesan</div>
               <div className="card-body">
-                <img
+                <LazyLoadImage
                   src={FiturPesan}
-                  className="card-img-top"
+                  className="card-img-top "
                   alt="Fitur Pesan"
                 />
               </div>
@@ -36,9 +42,9 @@ const Features = () => {
             <div className="card text-center shadow-lg">
               <div className="card-header">Laporan</div>
               <div className="card-body">
-                <img
+                <LazyLoadImage
                   src={FiturLaporan}
-                  className="card-img-top"
+                  className="card-img-top "
                   alt="Fitur Laporan"
                 />
               </div>
@@ -48,7 +54,7 @@ const Features = () => {
             <div className="card text-center shadow-lg">
               <div className="card-header">Event</div>
               <div className="card-body">
-                <img
+                <LazyLoadImage
                   src={FiturEvent}
                   className="card-img-top"
                   alt="Fitur Event"
