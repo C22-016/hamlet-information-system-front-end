@@ -103,7 +103,7 @@ const UserList = () => {
                   <tr className="hover-his text-center" key={user.uuid}>
                     <td>{index + 1}</td>
                     <td className="text-start">
-                      <img src={user.url} alt="profile" className="rounded-circle me-2" style={{ width: '3rem' }} />
+                      <img src={user.url} alt="sss" className="rounded-circle me-2" style={{ width: '3rem' }} />
                       {user.name}
                     </td>
                     <td>{user.email}</td>

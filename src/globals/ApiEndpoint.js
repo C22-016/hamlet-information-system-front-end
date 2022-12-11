@@ -17,7 +17,7 @@ const API_ENDPOINT = {
   DELETE_EVENT: (id) => `${CONFIG.BASE_URL}/events/${id}`,
   MESSAGES: `${CONFIG.BASE_URL}/message`,
   GET_MESSAGE_BY_ID: (id) => `${CONFIG.BASE_URL}/message/${id}`,
-  UPDATE_MESSAGE_BY_ID: (id) => `${CONFIG.BASE_URL}/message/${id}`,
+  UPDATE_MESSAGE_BY_ID: (messageId) => `${CONFIG.BASE_URL}/message/reply/${messageId}`,
   DELETE_MESSAGE_BY_ID: (id) => `${CONFIG.BASE_URL}/message/${id}`,
   USERS: `${CONFIG.BASE_URL}/users`,
   GET_USER_BY_ID: (id) => `${CONFIG.BASE_URL}/users/${id}`,

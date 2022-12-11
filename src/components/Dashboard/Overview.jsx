@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Col,
@@ -8,17 +8,30 @@ import {
   Table,
   Button,
 } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import API_ENDPOINT from '../../globals/ApiEndpoint';
 
 const Overview = () => {
+  const { user } = useSelector((state) => state.auth);
+  const [detailUser, setDetailUser] = useState({});
+
+  const getDetailUser = async () => {
+    const response = await axios.get(API_ENDPOINT.ME);
+    setDetailUser(response.data);
+  };
+
+  useEffect(() => {
+    getDetailUser();
+  }, []);
+
   return (
     <Container className="container-dashboard">
       <Row>
         <Col lg={9}>
           <Card className="shadow mb-4">
-            <Card.Header className="text-center fw-bold">
-              Aktivitas Terbaru
-            </Card.Header>
+            <Card.Header className="text-center fw-bold">Overview</Card.Header>
             <Card.Body className="text-center">
               <Row className="mb-4">
                 <Col sm={6}>
@@ -63,17 +76,17 @@ const Overview = () => {
               <hr />
               <Row className="mb-4">
                 <Card.Text className="h-4">Detail User Account</Card.Text>
-              </Row>
-              <Row className="mb-4">
-                <Col sm={4}>
-                  <Card.Text>Admin</Card.Text>
-                </Col>
-                <Col sm={4}>
-                  <Card.Text>Staf</Card.Text>
-                </Col>
-                <Col sm={4}>
-                  <Card.Text>User</Card.Text>
-                </Col>
+                <Card.Img
+                  src={detailUser.url}
+                  className="rounded-circle mx-auto d-block"
+                  alt="Foto Profil"
+                  style={{ width: '200px' }}
+                  fluid
+                />
+                <Card.Text className="display-5">
+                  {' '}
+                  Selamat Datang <strong>{user && user.name}</strong>
+                </Card.Text>
               </Row>
             </Card.Body>
           </Card>
